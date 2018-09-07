@@ -9,3 +9,7 @@ export const backEndProject = 4;
 export const bonfire = 5;
 export const video = 6;
 export const step = 7;
+export const ppt = 8;
+export const server = 9;
+export const quiz = 10;
+export const shakyo = 11;

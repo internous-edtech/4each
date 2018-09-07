@@ -1,0 +1,5817 @@
+@charset "UTF-8";
+body {
+  background-color: #E7EDED;
+  font-weight: 200;
+  font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', 'MS PGothic', Osaka, Arial, Helvetica, Verdana, sans-serif;
+}
+
+a {
+  color: #2D8BA4;
+}
+a:hover {
+  color: #2F8EA7;
+}
+
+p {
+  margin: 0px;
+}
+
+pre {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.white {
+  background-color: white !important;
+}
+
+.space-10 {
+  height: 10px;
+}
+
+.top-20 {
+  margin-top: 20px;
+}
+
+.bottom-20 {
+  margin-bottom: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.modal {
+  z-index: 999999;
+}
+
+.basecolor {
+  background-color: #E7EDED !important;
+}
+
+.block-center {
+  margin: 10px auto !important;
+}
+
+.mb-no-display {
+  display: block;
+}
+@media (max-width: 600px) {
+  .mb-no-display {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .mb-no-padding {
+    padding: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mb-center {
+    margin: auto !important;
+  }
+}
+
+.pc-no-display {
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .pc-no-display {
+    display: inline-block !important;
+  }
+}
+
+.board-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.chart-area {
+  height: 300px;
+  padding: 10px;
+}
+.chart-area canvas {
+  margin: auto;
+  display: block;
+}
+
+.plan-area {
+  height: 300px;
+  padding: 10px 10px 10px 10px;
+}
+.plan-area .button-up {
+  border-radius: 2px;
+  background-color: white;
+  color: #3C3C3C;
+  padding: 0px;
+  width: 50px;
+  height: 50px;
+  padding-top: -20px;
+  border-radius: 50%;
+  margin: 50px auto;
+  text-align: center;
+  line-height: 50px;
+  font-size: 45px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .plan-area .button-up {
+    margin-left: -20px;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 30px;
+    margin-top: 80px;
+  }
+}
+@media (max-width: 600px) {
+  .plan-area .button-up i {
+    margin-top: -4px;
+    display: block;
+  }
+}
+.plan-area .button-down {
+  border-radius: 2px;
+  background-color: white;
+  color: #3C3C3C;
+  padding: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  font-size: 45px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .plan-area .button-down {
+    margin-left: -20px;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .plan-area .button-down i {
+    margin-top: 4px;
+  }
+}
+.plan-area .plan-boxes {
+  height: 260px;
+}
+.plan-area .plan-boxes .plan-box {
+  height: 100px;
+  vertical-align: middle;
+  opacity: 0.7;
+  padding-left: 10px;
+}
+.plan-area .plan-boxes .plan-box .plan-title {
+  color: #2D8BA4;
+  font-size: 10px;
+  padding-top: 20px;
+}
+.plan-area .plan-boxes .plan-box .plan-content {
+  color: #3C3C3C;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 50px;
+}
+.plan-area .plan-boxes .plan-box.today {
+  font-weight: bold;
+  opacity: 1.0;
+}
+.plan-area .plan-boxes .plan-box.today .plan-title {
+  font-size: 16px;
+}
+.plan-area .plan-boxes .plan-box.today .plan-content {
+  font-size: 24px;
+  color: #dd5853;
+}
+
+.text-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #3C3C3C;
+  text-align: center;
+  font-size: 24px;
+}
+
+.eyecatch {
+  background-color: #E7EDED;
+  padding: 20px 0px;
+}
+.eyecatch a {
+  text-decoration: none;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar .topbar-image {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center,center;
+  background-repeat: no-repeat;
+}
+
+.topbar-icon {
+  text-align: center;
+  width: 68px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .topbar-icon {
+    width: 25%;
+    float: left;
+  }
+}
+.topbar-icon img {
+  width: 22px;
+  margin: 8px 5px 5px 5px;
+}
+.topbar-icon p {
+  font-size: 10px;
+}
+
+.navbar-default {
+  background-color: #2D8BA4;
+  box-shadow: 0px;
+  border-radius: 0px;
+  color: white;
+}
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+.navbar-default li.fukidashi {
+  background-color: white;
+  color: #2D8BA4;
+  height: 36px;
+  margin-top: 7px;
+  line-height: 36px;
+  padding: 0px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .navbar-default li.fukidashi {
+    font-size: 10px;
+    width: 90%;
+    margin: auto;
+  }
+}
+.navbar-default li.fukidashi-after {
+  background-color: white;
+  height: 6px;
+  margin-top: 22px;
+  border-radius: 3px;
+  width: 10px;
+  margin-left: -6px;
+}
+@media (max-width: 600px) {
+  .navbar-default .navbar-nav .open a:hover {
+    background-color: #2D8BA4;
+    color: white;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+  }
+  .navbar-default .navbar-toggle:hover {
+    background-color: #2D8BA4;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-top: -12px;
+}
+
+.container.main {
+  min-height: 600px;
+}
+
+.login-area {
+  margin-top: 70px;
+  text-align: center;
+  margin-bottom: 100px;
+  box-shadow: rgba(122, 122, 122, 0.05882) 0px 0px 6px 3px;
+  -webkit-box-shadow: rgba(122, 122, 122, 0.05882) 0px 0px 6px 3px;
+  -moz-box-shadow: rgba(122, 122, 122, 0.05882) 0px 0px 6px 3px;
+}
+.login-area .login-header {
+  height: 70px;
+  line-height: 70px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #2D8BA4;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-card{
+    text-align: center;
+    margin-bottom: 100px;
+}
+.top-top {
+  background-color: white;
+  width: auto;
+}
+
+.top-card-top {
+  color: #2D8BA4;
+  font-size: 24px;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+}
+.top-card-top img {
+  width: 30px;
+  display: inline-block;
+  margin-top: -7px;
+}
+
+.middle-title {
+  color: #2D8BA4;
+}
+.middle-title img {
+  display: inline-block;
+}
+
+.lesson-card {
+  box-shadow: rgba(32, 32, 32, 0.18882) 0px 0px 6px 3px;
+  -webkit-box-shadow: rgba(32, 32, 32, 0.18882) 0px 0px 6px 3px;
+  -moz-box-shadow: rgba(32, 32, 32, 0.18882) 0px 0px 6px 3px;
+}
+.lesson-card .lesson-card-top {
+  height: 70px;
+}
+.lesson-card .lesson-card-top .card-label {
+  float: left;
+  display: inline-block;
+  width: 15%;
+  background-color: #2D8BA4;
+  color: white;
+  text-align: center;
+  height: 70px;
+  padding-top: 15px;
+}
+@media (max-width: 600px) {
+  .lesson-card .lesson-card-top .card-label {
+    width: 20%;
+    font-size: 11px;
+    padding-top: 20px;
+  }
+}
+.lesson-card .lesson-card-top h2.lesson-card-title {
+  height: 70px;
+  line-height: 70px;
+  padding-left: 10px;
+  float: left;
+  width: 75%;
+  margin: 0px;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .lesson-card .lesson-card-top h2.lesson-card-title {
+    line-height: 20px;
+    font-size: 13px;
+    margin-top: 10px;
+    width: 70%;
+  }
+}
+.lesson-card .lesson-card-top h2.lesson-card-title hr.bottom-line {
+  width: 40%;
+  border-color: #ccc;
+  position: absolute;
+  left: 0px;
+  margin: 0px;
+  margin-left: 10px;
+  border-width: 2px;
+  top: 65px;
+}
+.lesson-card .lesson-card-top img {
+  float: left;
+  width: 3%;
+  margin-top: 23px;
+  margin-left: 2%;
+}
+@media (max-width: 600px) {
+  .lesson-card .lesson-card-top img {
+    width: 7%;
+  }
+}
+
+.lesson-card.active {
+  background-color: #E7EDED;
+}
+
+.card {
+  border-radius: 2px;
+  background-color: white;
+  color: #3C3C3C;
+  padding: 0px;
+}
+.card img.card-top-image {
+  width: 100%;
+}
+.card .card-header {
+  color: #2D8BA4;
+  font-size: 18px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.card .card-prof-image {
+  width: 60px;
+  height: 60px;
+  margin: 20px auto 10px auto;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center,center;
+  background-repeat: no-repeat;
+}
+.card h1.card-name {
+  font-size: 24px;
+}
+.card .card-notice {
+  margin: 20px 0px;
+  font-size: 10px;
+  color: #2D8BA4;
+  text-decoration: underline;
+}
+.card .card-notice i {
+  text-decoration: none;
+  font-size: 14px;
+}
+.card .card-title {
+  font-size: 24px;
+}
+.card .lesson-card-title {
+  font-size: 20px;
+  margin: 5px 0px 5px 5px;
+}
+.card .lesson-card-description {
+  margin: 15px 25px;
+  width: auto;
+  font-size: 14px;
+}
+.card .row.in-card {
+  margin: 0px;
+}
+.card .card-top {
+  height: 30px;
+}
+.card .card-top .card-top-text {
+  padding: 10px 20px;
+  font-size: 16px;
+  display: block;
+  color: #2D8BA4;
+  font-weight: bold;
+}
+.card .card-top .card-top-text img {
+  width: 30px;
+  display: inline-block;
+}
+.card .card-top .card-top-text.center {
+  text-align: center;
+}
+.card .card-top .card-label {
+  background-color: #1B9437;
+  color: white;
+  padding: 5px 20px;
+  font-size: 16px;
+  margin-left: -2px;
+}
+.card .card-top .card-label .card-label-icon {
+  width: 30px;
+  margin-top: -3px;
+  margin-right: 5px;
+}
+.card .card-top .card-label .card-label-icon.small {
+  width: 20px;
+}
+.card hr.card-line {
+  margin: -3px auto 4px auto;
+  width: 30px;
+  border-color: #2D8BA4;
+}
+.card .card-sub-title {
+  font-size: 11px;
+  color: #A6AAA9;
+}
+.card .card-image {
+  margin: 10px auto 10px auto;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #2D8BA4;
+}
+.card .card-image img {
+  width: 50px;
+  margin-top: 15px;
+}
+.card .card-description {
+  text-align: left;
+  margin: 15px auto;
+  width: 80%;
+}
+.card .card-progress {
+  height: 25px;
+  background-color: #eee;
+  width: 80%;
+  margin: 10px auto 20px auto;
+  border-radius: 5px;
+}
+.card .card-progress .progress-bar {
+  background-color: #2D8BA4;
+  height: 100%;
+  border-radius: 5px;
+  text-align: right;
+  line-height: 25px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+.card .card-button {
+  height: 35px;
+  color: white;
+  background-color: #2D8BA4;
+  margin: 10px 0px;
+  width: 120px;
+  line-height: 35px;
+  display: block;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+}
+.card .card-button img {
+  width: 100%;
+}
+.card .card-button .button-icon {
+  width: 23px;
+  float: left;
+  margin: 5px -15px 5px 15px;
+}
+.card .card-button.fleft {
+  float: left;
+  margin-left: 15px;
+}
+@media (max-width: 600px) {
+  .card .card-button.fleft {
+    float: none;
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+.card .card-form {
+  padding: 20px 35px;
+  display: block;
+}
+.card .card-form input {
+  height: 45px;
+}
+.card .card-form .card-form-notice {
+  text-align: left;
+  font-size: 10px;
+  padding-left: 0px;
+  color: #A6AAA9;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+.card .card-form input[type=submit] {
+  height: 40px;
+  background-color: #2D8BA4;
+  color: white;
+  border: 0px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 0px;
+  width: 60%;
+}
+.card .card-form input[type=submit]:hover {
+  background-color: #2F8EA7;
+}
+.card .card-form input[type=submit].small {
+  width: 30%;
+}
+.card .card-con-300 {
+  height: 300px;
+}
+.card .card-footer {
+  padding: 10px 0px 20px 0px;
+}
+.card .card-footer a {
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.icon-box {
+  color: #2D8BA4;
+  padding: 5px;
+  text-align: center;
+  width: 70px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .icon-box {
+    width: 70px;
+  }
+}
+.icon-box .check-box-square {
+  border: 5px solid #aaa;
+  width: 20px;
+  height: 20px;
+  margin: 15px auto;
+}
+.icon-box .check-box-square img.icon-image {
+  width: 30px;
+  margin-top: -30px;
+  margin-left: -7px;
+}
+.icon-box .check-box-square.nocheck img.icon-image {
+  display: none;
+}
+.icon-box img.icon-image {
+  width: 60%;
+  margin-bottom: 3px;
+}
+.icon-box .icon-text {
+  font-size: 10px;
+}
+.icon-box .icon-text.white {
+  color: white;
+}
+
+.icon-box.icon-small img {
+  width: 60%;
+  margin-top: 15px;
+}
+
+.card.card-separated {
+  margin: 0px 10px 20px 10px;
+  position: relative;
+}
+@media (max-width: 600px) {
+  .card.card-separated {
+    margin: 0px;
+  }
+}
+.card.card-separated .card-archive {
+  position: absolute;
+  color: white;
+  top: 15%;
+  left: 58.2%;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Hiragino Sans";
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  padding-top: 15px;
+  text-align: center;
+  background-position: center,center;
+}
+@media (max-width: 600px) {
+  .card.card-separated .card-archive {
+    left: 22%;
+    font-size: 12px;
+    top: 15%;
+    left: 54.2%;
+  }
+}
+.card.card-separated .card-archive .card-archive-num {
+  font-size: 18px;
+}
+@media (max-width: 600px) {
+  .card.card-separated .card-archive .card-archive-num {
+    font-size: 20px;
+  }
+}
+
+.card.topline {
+  border-top: 2px solid #1B9437;
+}
+
+.goal .face {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center,center;
+  background-repeat: no-repeat;
+}
+.goal .goal-text {
+  height: 80px;
+  padding-left: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.lessons {
+  color: black;
+}
+.lessons .lesson-image {
+  text-align: center;
+}
+.lessons .lesson-image img {
+  width: 100%;
+  margin-top: 20px;
+}
+.lessons .lesson-count {
+  margin-top: 5px;
+}
+.lessons h1.lesson-title {
+  margin: 5px 0px;
+}
+
+.studies {
+  color: white;
+}
+.studies .study-image {
+  text-align: center;
+}
+.studies .study-image img {
+  width: 80%;
+  margin-top: 10px;
+}
+.studies .study-image .study-image-text {
+  font-size: 11px;
+  margin-top: 5px;
+}
+.studies .study-count {
+  font-size: 12px;
+}
+.studies h1.study-title {
+  margin: 5px 0px;
+  font-size: 24px;
+}
+.studies .study-description {
+  font-size: 12px;
+  margin: 10px 0px 5px 0px;
+}
+.studies .icon-small {
+  margin-top: 10px;
+}
+.studies .icon-small img.icon-image {
+  width: 35%;
+}
+@media (max-width: 600px) {
+  .studies .icon-small img.icon-image {
+    width: 60%;
+  }
+}
+.studies .icon-small .icon-text {
+  margin-top: 5px;
+}
+@media (max-width: 600px) {
+  .studies .icon-small .icon-text {
+    font-size: 10px;
+  }
+}
+
+.study-area {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+@media (max-width: 600px) {
+  .study-area {
+    margin-bottom: 120px;
+  }
+}
+.study-area .card {
+  background-color: black;
+}
+
+.slide-area {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  margin-top: 0px;
+}
+@media (max-width: 600px) {
+  .slide-area {
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+}
+.slide-area ul.slides li.slide {
+  display: none;
+}
+.slide-area ul.slides li.slide img {
+  width: 100%;
+}
+.slide-area ul.slides li.slide:first-child {
+  display: block;
+}
+.slide-area .slide-left {
+  display: none;
+  cursor: pointer;
+}
+.slide-area .slide-right {
+  cursor: pointer;
+}
+.slide-area .slide-bottom {
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.note-area {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+@media (max-width: 600px) {
+  .note-area {
+    margin-bottom: 110px;
+  }
+}
+.note-area .note-content {
+  padding-top: 10px;
+}
+
+
+@media (max-width: 600px) {
+  .note-area .note-content {
+    padding-top: 0px;
+  }
+}
+.note-area .note-content .left-note {
+  padding-right: 2px;
+}
+@media (max-width: 600px) {
+  .note-area .note-content .left-note {
+    padding: 0px;
+  }
+}
+.note-area .note-content .right-note {
+  padding-left: 2px;
+}
+@media (max-width: 600px) {
+  .note-area .note-content .right-note {
+    padding: 0px;
+  }
+}
+.note-area .note-content .code {
+  height: 300px;
+  position: relative;
+  overflow-y: auto;
+  border: 1px solid #282828;
+  background-color: #f8f8f8;
+  margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .note-area .note-content .code {
+    height: 250px;
+  }
+}
+.note-area .note-content .code .code-title {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-color: #282828;
+  color: white;
+  text-align: center;
+  z-index: 99999;
+  padding: 0px 5px;
+}
+@media (max-width: 600px) {
+  .note-area .note-content .code .code-title {
+    left: 0px;
+  }
+}
+.note-area .note-content .editor {
+  height: 477px;
+  margin-top: 23px;
+}
+@media (max-width: 600px) {
+  .note-area .note-content .editor {
+    height: 227px;
+  }
+}
+.note-area .note-content .code.black {
+  background-color: #282828;
+}
+
+.help-area {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+}
+.help-area .help-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.help-area .help-box .help-title {
+  font-size: 16px;
+  margin: 3px 0px;
+  cursor: pointer;
+  background-color: #E7EDED;
+  color: #2D8BA4;
+  padding: 10px;
+  border-radius: 30px;
+}
+.help-area .help-box .help-title:before {
+  content: 'Q';
+  font-size: 16px;
+  margin-right: 5px;
+  background-color: #2D8BA4;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  text-align: center;
+}
+.help-area .help-box .help-title:after {
+  content: '+';
+  font-size: 30px;
+  display: block;
+  float: right;
+  margin-top: -5px;
+  margin-right: 20px;
+  color: #2D8BA4;
+}
+@media (max-width: 600px) {
+  .help-area .help-box .help-title:after {
+    margin-top: 5px;
+    display: none;
+  }
+}
+.help-area .help-box .help-answer {
+  padding-left: 20px;
+  display: none;
+  margin-top: 20px;
+}
+.help-area .help-box .help-answer:before {
+  content: 'A.';
+  font-size: 20px;
+  margin-right: 5px;
+  height: 60px;
+  color: #2D8BA4;
+  float: left;
+  width: 5%;
+  display: block;
+}
+.help-area .help-box.show .help-title:after {
+  content: '-';
+  color: #2D8BA4;
+}
+@media (max-width: 600px) {
+  .help-area .help-box.show .help-title:after {
+    display: none;
+  }
+}
+.help-area .help-box.show .help-answer {
+  display: block;
+}
+
+.modal .help-area {
+  margin: 5px;
+  padding: 5px;
+}
+.modal .help-area .help-box .help-title {
+  font-size: 16px;
+}
+
+.faq-area {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999999;
+}
+
+.circle-button-left {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: white;
+  color: #3C3C3C;
+  padding: 0px;
+  color: white;
+  background-color: #4C4C4C;
+  text-align: center;
+  line-height: 60px;
+  font-size: 40px;
+  padding-right: 5px;
+  position: absolute;
+  top: 45%;
+  margin-left: -110px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .circle-button-left {
+    top: 35%;
+    margin-left: -30px;
+  }
+}
+
+.circle-button-left-text {
+  font-size: 10px;
+  color: #3C3C3C;
+  text-align: center;
+  line-height: 50px;
+  padding-right: 5px;
+  position: absolute;
+  top: 40%;
+  margin-left: -65px;
+  margin-top: 35px;
+}
+
+.circle-button-left .prev-text {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 15px -35px;
+    color: #000;
+    width: 130px;
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+  .circle-button-left-text {
+    top: 105%;
+    margin-left: -5px;
+  }
+}
+
+.circle-button-right {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: white;
+  color: #3C3C3C;
+  padding: 0px;
+  color: white;
+  background-color: #4C4C4C;
+  text-align: center;
+  line-height: 60px;
+  font-size: 40px;
+  padding-left: 5px;
+  position: absolute;
+  top: 45%;
+  right: 0px;
+  margin-right: -90px;
+  cursor: pointer;
+}
+
+.circle-button-right .next-text {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 15px -35px;
+    color: #000;
+    width: 130px;
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+  .circle-button-right {
+    top: 35%;
+    margin-right: -15px;
+  }
+}
+
+.circle-button-right-text {
+  font-size: 10px;
+  color: #3C3C3C;
+  text-align: center;
+  line-height: 50px;
+  padding-left: 5px;
+  position: absolute;
+  top: 40%;
+  right: 0px;
+  margin-top: 35px;
+  margin-right: -52px;
+}
+@media (max-width: 600px) {
+  .circle-button-right-text {
+    top: 105%;
+    margin-right: 10px;
+  }
+}
+
+footer {
+  background-color: #4c4c4c;
+  color: white;
+  font-size: 10px;
+  padding: 10px 0px 10px 0px;
+}
+@media (max-width: 600px) {
+  footer div {
+    margin: 10px auto;
+  }
+}
+footer a {
+  color: white !important;
+}
+
+@media (min-width: 600px) {
+  #movie-frame {
+    margin-bottom: 50px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    margin: 0px;
+  }
+
+  .card.card-separated {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* /ja/{username} start */
+
+.img-center {
+  margin: 0 auto;
+}
+.btn-cta {
+  font-size: 40px;
+}
+.shadow {
+  white-space: normal;
+  -webkit-box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.3);
+}
+.btn-nav {
+  margin-top: 10px;
+}
+.large-li > li {
+  list-style: none;
+}
+.panel-heading {
+  font-size: 25px;
+}
+.panel-heading > h1 {
+  font-size: 25px;
+  padding: 2px;
+  margin: 2px;
+}
+
+
+.landing-icon {
+  height: 200px;
+  width: 200px;
+}
+.completion-icon {
+  font-size: 150px;
+}
+.positive-15 {
+  margin-top: 15px;
+}
+.positive-20 {
+  margin-top: 20px;
+}
+.positive-15-bottom {
+  margin-bottom: 15px;
+}
+.positive-10 {
+  margin-top: 10px;
+}
+.positive-5 {
+  margin-top: 5px;
+}
+.negative-5 {
+  margin-top: -5px;
+}
+.negative-10 {
+  margin-top: -10px;
+}
+.negative-15 {
+  margin-top: -15px;
+}
+.negative-20 {
+  margin-top: -20px;
+}
+.negative-28 {
+  margin-top: -28px;
+}
+.negative-30 {
+  margin-top: -30px;
+}
+.negative-30-bottom {
+  margin-bottom: -30px;
+}
+.negative-35 {
+  margin-top: -35px;
+}
+.negative-55 {
+  margin-top: -55px;
+  margin-bottom: -55px;
+}
+.large-p {
+  font-size: 24px;
+}
+.small-p {
+  font-size: 14px;
+}
+.map-p {
+  font-size: 20px;
+}
+.map-row-numbers {
+  text-align: right;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.link-table td {
+  font-size: 16px;
+  border-top: none !important;
+}
+@media (min-width: 767px) {
+  .link-table td {
+    font-size: 24px;
+  }
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.text-success {
+  color: darkgreen;
+}
+.fast-animation {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: graytext !important;
+}
+.hidden-element {
+  display: none;
+}
+
+li.avatar,
+li.avatar > a {
+  padding: 0;
+  margin: 0;
+}
+.thin-progress-bar {
+  height: 8px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.panel-body {
+  margin-bottom: -6px;
+}
+.lb-container {
+  padding: 0px;
+}
+.btn-social {
+  width: 250px;
+  margin: auto;
+}
+.btn-link-social {
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.map-aside-body p {
+  line-height: 1.8;
+}
+
+.hug-top {
+  margin-top: -35px;
+  margin-bottom: -10px;
+}
+.nonprofit-landing {
+  font-size: 50px;
+}
+.big-text {
+  font-size: 63px;
+}
+.signup-btn.btn {
+  background-color: #ffac33;
+  background-image: linear-gradient(#ffcc4d, #ffac33);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffcc4d,  endColorstr=#ffac33,  GradientType=0)";
+  border-color: #f1a02a;
+  color: #292f33 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.signup-btn:hover,
+.signup-btn:focus {
+  background-color: #e99110;
+  background-image: linear-gradient(#ffcc4d, #e99110);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffcc4d,  endColorstr=#e99110,  GradientType=0)";
+  border-color: #ec8b11;
+  color: #292f33 !important;
+}
+.signup-btn:active {
+  background-color: #f2a330;
+  background-image: none;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box !important;
+}
+.btn-big {
+  font-size: 20px;
+  border-radius: 6px;
+}
+.btn-bigger {
+  font-size: 30px;
+}
+.big-text-field {
+  font-size: 30px;
+  height: 57px;
+  background-color: #ffffff !important;
+}
+h4 {
+  font-size: 22px;
+}
+.no-transition {
+  -webkit-transition: height 0.001s;
+  -moz-transition: height 0.001s;
+  -ms-transition: height 0.001s;
+  -o-transition: height 0.001s;
+  transition: height 0.001s;
+}
+.margin-left-10 {
+  margin-left: 10px;
+}
+@media (max-width: 768px) {
+  .btn-responsive {
+    font-size: 15px;
+    height: 26.5px;
+    padding-top: 1px;
+  }
+}
+@media (max-width: 768px) {
+  .field-responsive {
+    font-size: 15px;
+    height: 26.5px;
+  }
+}
+thead {
+  font-size: 150%;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.big-break {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.profile-picture {
+  height: 50px;
+  width: 50px;
+}
+@media (min-width: 991px) and (max-width: 999px) {
+  .brownie-points-nav {
+    margin-right: -10px;
+  }
+}
+
+
+a[href="/email-signup"].btn-social.btn-lg > :first-child,
+a[href="/email-signin"].btn-social.btn-lg > :first-child {
+  line-height: 43px;
+  font-size: 26px;
+}
+form.update-email .btn {
+  margin: 0;
+  width: 40%;
+  display: inline-block;
+}
+form.update-email .btn:last-child {
+  float: right;
+}
+.public-profile-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+  border-color: #78FA89;
+}
+.flat-top {
+  margin-top: -5px;
+}
+.negative-bottom {
+  margin-bottom: -20px;
+}
+.min-height-1000 {
+  min-height: 1000px;
+}
+.points-on-top {
+  color: #ffffff;
+  font-size: 35px;
+  z-index: 2;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.landing-skill-icon {
+  color: darkgreen;
+  font-size: 150px;
+}
+.custom-landing-skill-icon {
+  margin-top: -15px;
+  padding-bottom: 15px;
+}
+.black-text {
+  color: #333;
+  font-weight: 400;
+  font-size: 40px;
+}
+.font-awesome-padding {
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+.background-svg {
+  width: 220px;
+  height: 220px;
+  background-image: url("https://s3.amazonaws.com/freecodecamp/certificate-icon.svg");
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.testimonial-image {
+  border-radius: 5px;
+  height: 200px;
+  width: 200px;
+  color: #009900;
+}
+.testimonial-image-jobs {
+  border-radius: 5px;
+  color: #009900;
+}
+.default-border-radius {
+  border-radius: 5px;
+}
+.height-500 {
+  height: 500px;
+}
+.height-400 {
+  height: 400px;
+}
+.testimonial-copy {
+  text-align: justify;
+  font-size: 18px !important;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media (min-width: 991px) and (max-width: 1199px) {
+  .testimonial-copy {
+    height: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .testimonial-copy {
+    height: 100px;
+  }
+}
+.nonprofit-testimonial-copy {
+  text-align: justify;
+  font-size: 18px !important;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media (min-width: 991px) and (max-width: 1199px) {
+  .nonprofit-testimonial-copy {
+    height: 300px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .nonprofit-testimonial-copy {
+    height: 200px !important;
+  }
+}
+
+.challenge-list-header {
+  background-color: darkgreen;
+  color: #eeeeee;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: -30px;
+  border-radius: 5px 5px 0px 0px;
+  padding-left: 50px;
+}
+.closing-x {
+  color: #eeeeee;
+  font-size: 50px;
+  text-align: right;
+}
+.fcc-footer {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background-color: darkgreen;
+  padding: 12px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.fcc-footer a {
+  font-size: 20px;
+  color: #eeeeee;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+}
+.fcc-footer a:hover {
+  color: darkgreen;
+  background-color: #eeeeee;
+  text-decoration: none;
+}
+.embed-responsive-twitch-chat {
+  padding-bottom: 117%;
+}
+#directions {
+  text-align: left;
+  font-size: 15px;
+}
+.graph-rect {
+  fill: #ddd !important;
+}
+/**
+ * Challenge styling
+ */
+form.code span {
+  font-size: 18px;
+  font-family: "Ubuntu Mono";
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  height: 100%;
+}
+.CodeMirror {
+  line-height: 1 !important;
+}
+.CodeMirror-linenumber {
+  font-size: 18px;
+  font-family: "Ubuntu Mono";
+}
+#mainEditorPanel {
+  height: 100%;
+  width: 99%;
+}
+.scroll-locker {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#mainEditorPanel .panel-body {
+  padding-bottom: 0px;
+}
+div.CodeMirror-scroll {
+  padding-bottom: 30px;
+}
+.test-vertical-center {
+  margin-top: 8px;
+}
+.cm-s-monokai.CodeMirror {
+  border-radius: 5px;
+}
+.courseware-height {
+  min-height: 650px;
+}
+
+.population-table {
+  font-size: 30px;
+  width: 460px;
+  margin: 0 auto;
+  padding: 0;
+}
+.population-table h2 {
+  margin: 0;
+  text-align: left;
+}
+.population-table .tag {
+  width: 165px;
+  display: inline-block;
+}
+.population-table .text-primary {
+  margin-right: 5px;
+}
+@media (max-width: 767px) {
+  .population-table {
+    font-size: 16px;
+    width: 260px;
+  }
+  .population-table .tag {
+    width: 95px;
+  }
+}
+
+.story-list {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.button-spacer {
+  padding: 5px 0;
+}
+.spacer {
+  padding: 15px 0 15px 0;
+}
+.landing-heading {
+  font-size: 50px !important;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.big-spacer {
+  padding: 30px 0 30px 0;
+}
+#reply-to-main-post,
+#upvote {
+  cursor: pointer;
+}
+.btn-no-shadow {
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.dotted-underline {
+  border-bottom: dashed 1px #457E86;
+}
+.d3-centered {
+  width: 771px;
+  margin: 0 auto;
+}
+.cal-heatmap-container {
+}
+.interested-camper-image {
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+}
+.mobile-story-image {
+  border-radius: 5px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .mobile-story-image {
+    margin-right: 5px;
+  }
+}
+.alert a {
+  text-decoration: underline;
+}
+.step-text {
+  line-height: 120%;
+  padding-bottom: 10px;
+}
+.faded {
+  opacity: 0.5;
+}
+.slightly-faded {
+  opacity: 0.75;
+}
+.padded-ionic-icon {
+  padding-top: 15px;
+}
+.checklist-element {
+  margin-left: -60px;
+  margin-right: -20px;
+}
+.profile-social-icons {
+  margin-left: 8px;
+}
+.border-radius-5 {
+  border-radius: 5px;
+}
+code {
+  padding: 1px 5px;
+}
+@media only screen and (min-width: 993px) {
+  .iframe-scroll {
+    z-index: 1;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .iframe-scroll {
+    height: auto;
+    overflow: auto;
+  }
+}
+.chart rect {
+  fill: steelblue;
+}
+.chart text {
+  font-size: 14px;
+  text-anchor: end;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #121401;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+.gitter-chat-embed {
+  z-index: 20000 !important;
+}
+/* :not(:required) hides this rule from IE9 and below */
+.inner-circles-loader:not(:required) {
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  background: rgba(25, 165, 152, 0.5);
+  border-radius: 50%;
+  overflow: hidden;
+  text-indent: -9999px;
+  margin-top: 10%;
+  /* Hides inner circles outside base circle at safari */
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+.inner-circles-loader:not(:required):before,
+.inner-circles-loader:not(:required):after {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+.inner-circles-loader:not(:required):before {
+  -moz-animation: inner-circles-loader 3s infinite;
+  -webkit-animation: inner-circles-loader 3s infinite;
+  animation: inner-circles-loader 3s infinite;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  left: 0;
+  background: #c7efcf;
+}
+.inner-circles-loader:not(:required):after {
+  -moz-animation: inner-circles-loader 3s 0.2s reverse infinite;
+  -webkit-animation: inner-circles-loader 3s 0.2s reverse infinite;
+  animation: inner-circles-loader 3s 0.2s reverse infinite;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  right: 0;
+  background: #eef5db;
+}
+@-moz-keyframes inner-circles-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes inner-circles-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes inner-circles-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+.night {
+  background-color: #333333;
+  color: #999;
+}
+.night .btn-group,
+.night .text-success,
+.night .challenge-list-header,
+.night .fcc-footer {
+  background-color: #333333;
+}
+.night hr {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+.night .navbar-default .navbar-nav > li > a {
+  color: #CCC;
+}
+.night .navbar-default .navbar-nav > li > a:hover {
+  background-color: #666;
+}
+.night a,
+.night .input-group-addon,
+.night .challenge-instructions a,
+.night .challenge-instructions #MDN-links a {
+  color: #CCC;
+}
+.night .fa-github-square {
+  color: darkgreen;
+}
+.night .fa-github-square:hover {
+  color: #CCC;
+}
+.night .black-text {
+  color: #111;
+}
+.night code {
+  background-color: #999;
+  color: darkgreen;
+}
+.night .fcc-footer ahover {
+  background-color: #333333;
+}
+.night .btn-primary {
+  background-color: darkgreen;
+  border-color: #292929;
+  color: #CCC;
+  transition: color 0.2s, background-color 0.2s;
+}
+.night .btn-primary:hover {
+  background-color: #ABABAB!important;
+  color: #333333 !important;
+}
+.night .cal-heatmap-container {
+  background-color: #333333;
+}
+.night .graph-rect {
+  fill: #999 !important;
+}
+.night .table-striped > tbody > tr:nth-child(odd) {
+  background-color: #555555;
+}
+.night .table > thead > tr > th,
+.night .table > tbody > tr > th,
+.night .table > tfoot > tr > th,
+.night .table > thead > tr > td,
+.night .table > tbody > tr > td,
+.night .table > tfoot > tr > td {
+  border-color: #999;
+}
+@media only screen and (max-width: 400px) {
+  table.response-table td {
+    width: 100%;
+    display: block;
+  }
+}
+.btn-default:active,
+.btn-default:hover {
+  background-color: darkgreen;
+}
+.bio {
+  font-size: 17px;
+}
+.chat-embed-main-title {
+  display: flex;
+  flex-grow: 1;
+  padding-left: 31px;
+  padding-top: 7px;
+}
+.gitter-chat-embed {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 60%;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s cubic-bezier(0.16, 0.22, 0.22, 1.7);
+}
+.gitter-chat-embed.is-collapsed:not(.is-loading) {
+  transform: translateX(110%);
+}
+.jobs-list-highlight {
+  background-color: #ffc;
+}
+a.jobs-list-highlight:hover {
+  background-color: #ffc;
+}
+.jobs-list {
+  cursor: pointer;
+  cursor: hand;
+}
+.jobs-checkbox-spacer input[type="checkbox"] {
+  margin-left: -23px;
+}
+.challenge-step-description {
+  font-size: 1.5em;
+}
+.challenge-step-counter {
+  font-size: 20px;
+  line-height: 44px;
+}
+.challenge-instructions-title {
+  margin-top: 0;
+}
+.challenge-instructions-title i {
+  margin-left: 5px;
+  line-height: 20px;
+}
+.challenge-instructions {
+  margin-bottom: 5px;
+}
+.challenge-instructions h4 {
+  margin-bottom: 0;
+}
+.challenge-instructions blockquote {
+  font-size: 90%;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #c7254e;
+  background-color: #fffbe5;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  white-space: pre;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+  overflow: auto;
+}
+.challenge-instructions dfn {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+.challenge-instructions a,
+.challenge-instructions #MDN-links a {
+  color: #31708f;
+}
+.challenge-instructions a::after,
+.challenge-instructions #MDN-links a::after {
+  font-size: 70%;
+  font-family: FontAwesome;
+  content: " \f08e";
+}
+.challenge-instructions ol {
+  font-size: 16px;
+}
+#testSuite {
+  margin-top: 10px;
+}
+#testSuite > div > .row {
+  margin: 0!important;
+}
+.test-output {
+  font-size: 15px;
+  font-family: "Ubuntu Mono";
+  margin-top: 8px;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+.grayed-out-test-output {
+  color: #777777;
+}
+.big-error-icon {
+  font-size: 30px;
+  color: #d9534f;
+  top: 50%;
+}
+.big-success-icon {
+  font-size: 30px;
+  color: darkgreen;
+}
+iframe.iphone {
+  border: none;
+}
+@media (min-width: 992px) {
+  iframe.iphone {
+    width: 280px;
+    height: 500px;
+    position: absolute;
+    top: 70px;
+    right: 35px;
+    overflow-y: scroll;
+  }
+}
+@media (max-width: 991px) {
+  iframe.iphone {
+    width: 100%;
+    border-radius: 5px;
+    overflow-y: visible;
+    height: 500px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1250px) {
+  iframe.iphone {
+    right: 22px;
+  }
+}
+.iphone-position {
+  position: absolute;
+  top: -50px;
+  z-index: -1;
+  right: -195px;
+}
+@media (min-width: 1200px) and (max-width: 1250px) {
+  .iphone-position {
+    right: -207px;
+  }
+}
+.night .challenge-instructions blockquote {
+  background-color: #242424;
+  border-color: #515151;
+  color: #ABABAB;
+}
+.night div.CodeMirror {
+  background-color: #242424;
+  color: #ABABAB;
+}
+.night div.CodeMirror-gutters {
+  background-color: #242424;
+  color: #ABABAB;
+}
+.night div.CodeMirror .cm-bracket,
+.night div.CodeMirror .cm-tag {
+  color: #5CAFD6;
+}
+.night div.CodeMirror .cm-property,
+.night div.CodeMirror .cm-string {
+  color: #B5753A;
+}
+.night div.CodeMirror .cm-keyword,
+.night div.CodeMirror .cm-attribute {
+  color: #9BBBDC;
+}
+.toast-title {
+  font-weight: bold;
+}
+.toast-message {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+.toast-message a,
+.toast-message label {
+  color: #FFFFFF;
+}
+.toast-message a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+.toast-close-button {
+  position: relative;
+  right: -0.3em;
+  top: -0.3em;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  -webkit-text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: alpha(opacity=80);
+}
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+}
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.toast-top-center {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-full-width {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-left {
+  top: 12px;
+  left: 12px;
+}
+.toast-top-right {
+  top: 12px;
+  right: 12px;
+}
+.toast-bottom-right {
+  right: 12px;
+  bottom: 12px;
+}
+.toast-bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+#toast-container {
+  position: fixed;
+  z-index: 999999;
+  pointer-events: none;
+  /*overrides*/
+}
+#toast-container * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#toast-container > div {
+  position: relative;
+  pointer-events: auto;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  -moz-box-shadow: 0 0 12px #999999;
+  -webkit-box-shadow: 0 0 12px #999999;
+  box-shadow: 0 0 12px #999999;
+  color: #FFFFFF;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: alpha(opacity=80);
+}
+#toast-container > :hover {
+  -moz-box-shadow: 0 0 12px #000000;
+  -webkit-box-shadow: 0 0 12px #000000;
+  box-shadow: 0 0 12px #000000;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  cursor: pointer;
+}
+#toast-container > .toast-info {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=") !important;
+}
+#toast-container > .toast-error {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=") !important;
+}
+#toast-container > .toast-success {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==") !important;
+}
+#toast-container > .toast-warning {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=") !important;
+}
+#toast-container.toast-top-center > div,
+#toast-container.toast-bottom-center > div {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toast {
+  background-color: #030303;
+}
+.toast-success {
+  background-color: #51A351;
+}
+.toast-error {
+  background-color: #BD362F;
+}
+.toast-info {
+  background-color: #2F96B4;
+}
+.toast-warning {
+  background-color: #F89406;
+}
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: #000000;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+}
+/*Responsive Design*/
+@media all and (max-width: 240px) {
+  #toast-container > div {
+    padding: 8px 8px 8px 50px;
+    width: 11em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  #toast-container > div {
+    padding: 8px 8px 8px 50px;
+    width: 18em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  #toast-container > div {
+    padding: 15px 15px 15px 50px;
+    width: 25em;
+  }
+}
+/*
+ * based off of https://github.com/gitterHQ/sidecar
+ * license: MIT
+ */
+.map-aside {
+  width: 500px;
+  z-index: 20000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  box-shadow: -12px 0 18px 0 rgba(50, 50, 50, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 0.22, 0.22, 1.7);
+  /* Add some "extension" so that there isn't a gap
+     * when we translate(via animation) more than 100% */
+}
+.map-aside.is-collapsed:not(.is-loading) {
+  -webkit-transform: translateX(110%);
+  transform: translateX(110%);
+}
+.map-aside:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  right: -100%;
+  background-color: #ffffff;
+}
+.map-aside iframe {
+  width: 100%;
+  height: 100%;
+}
+.map-aside-action-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-top: 5px;
+  z-index: 100;
+}
+.map-fixed-header {
+  position: fixed;
+  background: white;
+  padding-top: 5px;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+@media (max-width: 720px) {
+  .map-fixed-header {
+    padding-top: 30px;
+  }
+}
+.map-fixed-header p {
+  margin: 5px 0 20px;
+}
+@media (max-width: 720px) {
+  .map-fixed-header p {
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 670px) {
+  .map-fixed-header p {
+    margin-top: -30px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 479px) {
+  .map-fixed-header p {
+    margin-top: -30px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
+.map-fixed-header hr {
+  margin: 30px 0;
+}
+@media (max-width: 720px) {
+  .map-fixed-header hr {
+    margin: 25px 0;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 670px) {
+  .map-fixed-header hr {
+    margin: 15px 0;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 479px) {
+  .map-fixed-header hr {
+    margin: 10px 0;
+  }
+}
+.map-fixed-header .flashMessage {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 2;
+  top: 160px;
+  left: 0px;
+  width: 100%;
+}
+.map-buttons {
+  margin-top: -10px;
+}
+.map-buttons button,
+.map-buttons .input-group {
+  width: 300px;
+}
+.map-buttons .input-group {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#map-filter {
+  background: #fff;
+  border-color: darkgreen;
+}
+.input-group-addon {
+  width: 40px;
+  color: darkgreen;
+  background: #fff;
+  border-color: darkgreen;
+}
+.input-group-addon.filled {
+  background: darkgreen;
+  border-color: #000d00;
+  color: #fff;
+  cursor: pointer;
+}
+.input-group-addon .fa {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10px;
+}
+.mapWrapper {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.map-accordion {
+  width: 700px;
+  margin: 245px auto 0;
+  position: relative;
+}
+.map-accordion #nested {
+  margin: 0 10px;
+}
+.map-accordion-block {
+    margin-left: 70px;
+}
+@media (max-width: 400px) {
+  .map-accordion #nested {
+    margin: 0;
+  }
+}
+.map-accordion a:focus {
+  text-decoration: none;
+  color: darkgreen;
+}
+.map-accordion a:focus:hover {
+  text-decoration: underline;
+  color: #001800;
+}
+.map-accordion h2 > a {
+  width: 100%;
+  display: block;
+  background: #efefef;
+  padding: 10px 0;
+  padding-left: 50px;
+  padding-right: 20px;
+}
+.map-accordion h3 {
+  margin: 15px 0;
+  padding: 0;
+}
+.map-accordion h3:first-child {
+  margin-top: 25px;
+}
+.map-accordion h3 > a {
+  padding-left: 40px;
+  padding-bottom: 10px;
+  display: block;
+  max-width: 535px;
+}
+.map-accordion div.chapterBlock :before {
+  margin-right: 15px;
+}
+.map-accordion div.chapterBlock p {
+  text-indent: -15px;
+  margin-left: 60px;
+  padding-right: 20px;
+}
+@media (max-width: 400px) {
+  .map-accordion div.chapterBlock p {
+    margin-left: 30px;
+  }
+}
+.map-accordion .challengeBlockDescription {
+  margin: 0;
+  margin-top: -10px;
+  padding: 0 15px 23px 30px;
+}
+.map-accordion span.no-link-underline {
+  position: absolute;
+  margin-left: -30px;
+  color: #666;
+}
+.map-accordion div > div:last-child {
+  /*margin-bottom: 30px;*/
+}
+.challengeBlockTime {
+  font-size: 18px;
+  color: #BBBBBB;
+  display: block;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+@media (min-width: 721px) {
+  .challengeBlockTime {
+    margin-right: 20px;
+    margin-top: -30px;
+    float: right;
+  }
+}
+@media (max-width: 720px) {
+  .map-accordion {
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 195px;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .map-accordion h2 {
+    margin: 15px 0;
+    padding: 0;
+  }
+  .map-accordion h2:first-of-type {
+    margin-top: 0;
+  }
+  .map-accordion h2 > a {
+    padding: 10px 0;
+    padding-left: 50px;
+    padding-right: 20px;
+    font-size: 20px;
+  }
+  .map-accordion h3 {
+    margin: 10px 0;
+    padding: 0;
+  }
+  .map-accordion h3 > a {
+    clear: both;
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 670px) {
+  .map-fixed-header .row.map-buttons {
+    width: 50%;
+    float: left;
+    padding-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .map-fixed-header .row.map-buttons button,
+  .map-fixed-header .row.map-buttons button.map-buttons {
+    width: 100%;
+  }
+  .map-fixed-header .row.map-buttons .input-group {
+    margin-top: 0;
+    width: 100%;
+  }
+  .map-fixed-header .map-buttons:first-of-type {
+    float: right;
+    padding-left: 10px;
+  }
+  .map-fixed-header hr {
+    clear: both;
+    margin: 9px 0;
+  }
+  .map-accordion {
+    top: 136px;
+  }
+  .map-accordion h2 {
+    margin: 5px 0;
+  }
+  .map-accordion h2 a {
+    font-size: 16px;
+  }
+  .map-accordion h3 > a {
+    font-size: 15px;
+  }
+  .map-accordion h3:first-child {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 479px) {
+  .map-fixed-header .row.map-buttons {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .map-fixed-header .row.map-buttons button,
+  .map-fixed-header .row.map-buttons button.map-buttons {
+    width: 100%;
+  }
+  .map-fixed-header .row.map-buttons .input-group {
+    margin-top: 0;
+    width: 100%;
+  }
+  .map-accordion {
+    top: 172px;
+  }
+  .map-accordion h2 {
+    margin: 10px 0;
+  }
+  .map-accordion h2 a {
+    font-size: 18px;
+  }
+  .map-accordion h3 > a {
+    font-size: 17px;
+  }
+  .map-accordion h3:first-child {
+    margin-top: 10px;
+  }
+}
+.map-aside-action-item {
+  display: -webkit-flex;
+  display: flex;
+  /* main axis */
+  justify-content: center;
+  /* cross axis */
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding-left: 0;
+  padding-right: 0;
+  opacity: 0.65;
+  background: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  cursor: hand;
+  transition: all 0.2s ease;
+}
+.map-aside-action-item:hover,
+.map-aside-action-item:focus {
+  opacity: 1;
+}
+.map-aside-action-item:active {
+  filter: hue-rotate(80deg) saturate(150);
+}
+#noneFound {
+  display: none;
+  margin: 60px 30px 0;
+  font-size: 30px;
+  text-align: center;
+  color: darkgreen;
+}
+#noneFound .fa {
+  display: block;
+  font-size: 300px;
+}
+.map-aside-action-pop-out {
+  margin-right: -4px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTcxLjQyOSIgZmlsbD0iIzNhMzEzMyI+PHBhdGggZD0iTTE1Ny4xNDMsMTAzLjU3MXYzNS43MTRjMCw4Ljg1NC0zLjE0NCwxNi40MjYtOS40MzEsMjIuNzEzcy0xMy44NTgsOS40MzEtMjIuNzEyLDkuNDMxSDMyLjE0MyBjLTguODU0LDAtMTYuNDI1LTMuMTQ0LTIyLjcxMi05LjQzMVMwLDE0OC4xNCwwLDEzOS4yODVWNDYuNDI5YzAtOC44NTQsMy4xNDQtMTYuNDI1LDkuNDMxLTIyLjcxMiBjNi4yODctNi4yODcsMTMuODU4LTkuNDMxLDIyLjcxMi05LjQzMWg3OC41NzJjMS4wNDEsMCwxLjg5NiwwLjMzNSwyLjU2NiwxLjAwNGMwLjY3LDAuNjcsMS4wMDQsMS41MjUsMS4wMDQsMi41NjdWMjUgYzAsMS4wNDItMC4zMzQsMS44OTctMS4wMDQsMi41NjdjLTAuNjcsMC42Ny0xLjUyNSwxLjAwNC0yLjU2NiwxLjAwNEgzMi4xNDNjLTQuOTExLDAtOS4xMTUsMS43NDktMTIuNjEyLDUuMjQ2IHMtNS4yNDYsNy43MDEtNS4yNDYsMTIuNjEydjkyLjg1NmMwLDQuOTExLDEuNzQ5LDkuMTE1LDUuMjQ2LDEyLjYxMnM3LjcwMSw1LjI0NSwxMi42MTIsNS4yNDVIMTI1YzQuOTEsMCw5LjExNS0xLjc0OCwxMi42MTEtNS4yNDUgYzMuNDk3LTMuNDk3LDUuMjQ2LTcuNzAxLDUuMjQ2LTEyLjYxMnYtMzUuNzE0YzAtMS4wNDIsMC4zMzQtMS44OTcsMS4wMDQtMi41NjdjMC42Ny0wLjY2OSwxLjUyNS0xLjAwNCwyLjU2Ny0xLjAwNGg3LjE0MyBjMS4wNDIsMCwxLjg5NywwLjMzNSwyLjU2NywxLjAwNEMxNTYuODA5LDEwMS42NzQsMTU3LjE0MywxMDIuNTI5LDE1Ny4xNDMsMTAzLjU3MXogTTIwMCw3LjE0M3Y1Ny4xNDMgYzAsMS45MzUtMC43MDcsMy42MDktMi4xMjEsNS4wMjJjLTEuNDEzLDEuNDE0LTMuMDg4LDIuMTIxLTUuMDIxLDIuMTIxYy0xLjkzNSwwLTMuNjA5LTAuNzA3LTUuMDIyLTIuMTIxbC0xOS42NDQtMTkuNjQzIGwtNzIuNzY3LDcyLjc2OWMtMC43NDQsMC43NDQtMS42LDEuMTE1LTIuNTY3LDEuMTE1cy0xLjgyMy0wLjM3MS0yLjU2Ny0xLjExNUw3Ny41NjcsMTA5LjcxYy0wLjc0NC0wLjc0NC0xLjExNi0xLjYtMS4xMTYtMi41NjcgYzAtMC45NjcsMC4zNzItMS44MjIsMS4xMTYtMi41NjZsNzIuNzY4LTcyLjc2OGwtMTkuNjQ0LTE5LjY0M2MtMS40MTMtMS40MTQtMi4xMi0zLjA4OC0yLjEyLTUuMDIyYzAtMS45MzUsMC43MDctMy42MDksMi4xMi01LjAyMiBDMTMyLjEwNSwwLjcwNywxMzMuNzc5LDAsMTM1LjcxNSwwaDU3LjE0M2MxLjkzNCwwLDMuNjA4LDAuNzA3LDUuMDIxLDIuMTIxQzE5OS4yOTMsMy41MzQsMjAwLDUuMjA4LDIwMCw3LjE0M3oiLz48L3N2Zz4=);
+}
+.map-aside-action-collapse {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNzEuNDI5IDE3MS40MjkiIGZpbGw9IiMzYTMxMzMiPjxwYXRoIGQ9Ik0xMjIuNDMzLDEwNi4xMzhsLTE2LjI5NSwxNi4yOTVjLTAuNzQ0LDAuNzQ0LTEuNiwxLjExNi0yLjU2NiwxLjExNmMtMC45NjgsMC0xLjgyMy0wLjM3Mi0yLjU2Ny0xLjExNmwtMTUuMjktMTUuMjkgbC0xNS4yOSwxNS4yOWMtMC43NDQsMC43NDQtMS42LDEuMTE2LTIuNTY3LDEuMTE2cy0xLjgyMy0wLjM3Mi0yLjU2Ny0xLjExNmwtMTYuMjk0LTE2LjI5NWMtMC43NDQtMC43NDQtMS4xMTYtMS42LTEuMTE2LTIuNTY2IGMwLTAuOTY4LDAuMzcyLTEuODIzLDEuMTE2LTIuNTY3bDE1LjI5LTE1LjI5bC0xNS4yOS0xNS4yOWMtMC43NDQtMC43NDQtMS4xMTYtMS42LTEuMTE2LTIuNTY3czAuMzcyLTEuODIzLDEuMTE2LTIuNTY3IEw2NS4yOSw0OC45OTZjMC43NDQtMC43NDQsMS42LTEuMTE2LDIuNTY3LTEuMTE2czEuODIzLDAuMzcyLDIuNTY3LDEuMTE2bDE1LjI5LDE1LjI5bDE1LjI5LTE1LjI5IGMwLjc0NC0wLjc0NCwxLjYtMS4xMTYsMi41NjctMS4xMTZjMC45NjcsMCwxLjgyMiwwLjM3MiwyLjU2NiwxLjExNmwxNi4yOTUsMTYuMjk0YzAuNzQ0LDAuNzQ0LDEuMTE2LDEuNiwxLjExNiwyLjU2NyBzLTAuMzcyLDEuODIzLTEuMTE2LDIuNTY3bC0xNS4yOSwxNS4yOWwxNS4yOSwxNS4yOWMwLjc0NCwwLjc0NCwxLjExNiwxLjYsMS4xMTYsMi41NjcgQzEyMy41NDksMTA0LjUzOSwxMjMuMTc3LDEwNS4zOTQsMTIyLjQzMywxMDYuMTM4eiBNMTQ2LjQyOSw4NS43MTRjMC0xMS4wMTItMi43MTctMjEuMTY4LTguMTQ4LTMwLjQ2OSBzLTEyLjc5Ny0xNi42NjctMjIuMDk4LTIyLjA5OFM5Ni43MjYsMjUsODUuNzE0LDI1cy0yMS4xNjgsMi43MTYtMzAuNDY5LDguMTQ3UzM4LjU3OSw0NS45NDUsMzMuMTQ3LDU1LjI0NlMyNSw3NC43MDMsMjUsODUuNzE0IHMyLjcxNiwyMS4xNjgsOC4xNDcsMzAuNDY5czEyLjc5NywxNi42NjYsMjIuMDk4LDIyLjA5OHMxOS40NTcsOC4xNDgsMzAuNDY5LDguMTQ4czIxLjE2OC0yLjcxNywzMC40NjktOC4xNDggczE2LjY2Ni0xMi43OTcsMjIuMDk4LTIyLjA5OFMxNDYuNDI5LDk2LjcyNiwxNDYuNDI5LDg1LjcxNHogTTE3MS40MjksODUuNzE0YzAsMTUuNTUxLTMuODMyLDI5Ljg5My0xMS40OTYsNDMuMDI0IGMtNy42NjQsMTMuMTMzLTE4LjA2MiwyMy41My0zMS4xOTQsMzEuMTk0Yy0xMy4xMzIsNy42NjQtMjcuNDc0LDExLjQ5Ni00My4wMjQsMTEuNDk2cy0yOS44OTItMy44MzItNDMuMDI0LTExLjQ5NiBjLTEzLjEzMy03LjY2NC0yMy41MzEtMTguMDYyLTMxLjE5NC0zMS4xOTRDMy44MzIsMTE1LjYwNywwLDEwMS4yNjUsMCw4NS43MTRTMy44MzIsNTUuODIyLDExLjQ5Niw0Mi42OSBjNy42NjQtMTMuMTMzLDE4LjA2Mi0yMy41MzEsMzEuMTk0LTMxLjE5NEM1NS44MjIsMy44MzIsNzAuMTY0LDAsODUuNzE0LDBzMjkuODkzLDMuODMyLDQzLjAyNCwxMS40OTYgYzEzLjEzMyw3LjY2NCwyMy41MywxOC4wNjIsMzEuMTk0LDMxLjE5NEMxNjcuNTk3LDU1LjgyMiwxNzEuNDI5LDcwLjE2NCwxNzEuNDI5LDg1LjcxNHoiLz48L3N2Zz4=);
+}
+.map-aside-body .map-fixed-header p {
+  margin-top: 0;
+  font-size: 16px;
+}
+.map-aside-body .map-fixed-header .row.map-buttons {
+  float: none;
+  width: 100%;
+  text-align: center;
+}
+.map-aside-body .map-fixed-header .row.map-buttons button {
+  width: 300px;
+}
+.map-aside-body .map-fixed-header .row.map-buttons .input-group {
+  width: 300px;
+  padding-top: 5px;
+}
+.map-aside-body .map-buttons:first-of-type {
+  float: none;
+  padding-left: 0;
+}
+.map-aside-body .map-accordion {
+  top: 180px;
+}
+.map-aside-body .map-accordion h2 {
+  margin: 15px 0;
+}
+.map-aside-body .map-accordion h2 a {
+  padding: 10px 0;
+  padding-left: 50px;
+  padding-right: 20px;
+  font-size: 20px;
+}
+.map-aside-body .map-accordion h3 > a {
+  font-size: 20px;
+}
+.night .map-fixed-header {
+  background-color: #333333;
+}
+.night .map-aside {
+  border-left-color: #222;
+}
+.night .map-aside-action-item {
+  filter: brightness(2) saturate(0);
+  -webkit-filter: brightness(2) saturate(0);
+}
+.night #map-filter,
+.night .input-group-addon {
+  border-color: #292929;
+  background-color: #666;
+  color: #ABABAB;
+}
+.night .map-accordion span.no-link-underline {
+  color: darkgreen;
+}
+.night .map-accordion h2 > a {
+  background: #666;
+}
+.night .map-accordion a:focus,
+.night #noneFound {
+  color: #ABABAB;
+}
+.night .input-group-addon.filled {
+  background: #555555;
+  border-color: #292929;
+  color: white;
+}
+.night .challenge-title {
+  color: #999;
+}
+.osfg-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 35px;
+}
+.osfg-item {
+  width: 32.3%;
+}
+.osfg-item:before {
+  margin-right: 15px;
+}
+@media (max-width: 767px) {
+  .osfg-item {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .osfg-item {
+    width: 100%;
+  }
+}
+ul > li {
+  list-style-type: disc;
+}
+
+/* /ja/{username} end */
+
+
+
+/*!
+Ionicons, v2.0.0
+Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
+https://twitter.com/benjsperry  https://twitter.com/ionicframework
+MIT License: https://github.com/driftyco/ionicons
+*/
+@font-face {
+  font-family: "Ionicons";
+  src: url("../fonts/ionicons.eot?v=2.0.0");
+  src: url("../fonts/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=2.0.0") format("truetype"), url("../fonts/ionicons.woff?v=2.0.0") format("woff"), url("../fonts/ionicons.svg?v=2.0.0#Ionicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.ion,
+.ion-loading-a,
+.ion-loading-b,
+.ion-loading-c,
+.ion-loading-d,
+.ion-looping,
+.ion-refreshing,
+.ion-ios7-reloading,
+.ionicons,
+.ion-alert:before,
+.ion-alert-circled:before,
+.ion-android-add:before,
+.ion-android-add-circle:before,
+.ion-android-alarm-clock:before,
+.ion-android-alert:before,
+.ion-android-apps:before,
+.ion-android-archive:before,
+.ion-android-arrow-back:before,
+.ion-android-arrow-down:before,
+.ion-android-arrow-dropdown:before,
+.ion-android-arrow-dropdown-circle:before,
+.ion-android-arrow-dropleft:before,
+.ion-android-arrow-dropleft-circle:before,
+.ion-android-arrow-dropright:before,
+.ion-android-arrow-dropright-circle:before,
+.ion-android-arrow-dropup:before,
+.ion-android-arrow-dropup-circle:before,
+.ion-android-arrow-forward:before,
+.ion-android-arrow-up:before,
+.ion-android-attach:before,
+.ion-android-bar:before,
+.ion-android-bicycle:before,
+.ion-android-boat:before,
+.ion-android-bookmark:before,
+.ion-android-bulb:before,
+.ion-android-bus:before,
+.ion-android-calendar:before,
+.ion-android-call:before,
+.ion-android-camera:before,
+.ion-android-cancel:before,
+.ion-android-car:before,
+.ion-android-cart:before,
+.ion-android-chat:before,
+.ion-android-checkbox:before,
+.ion-android-checkbox-blank:before,
+.ion-android-checkbox-outline:before,
+.ion-android-checkbox-outline-blank:before,
+.ion-android-checkmark-circle:before,
+.ion-android-clipboard:before,
+.ion-android-close:before,
+.ion-android-cloud:before,
+.ion-android-cloud-circle:before,
+.ion-android-cloud-done:before,
+.ion-android-cloud-outline:before,
+.ion-android-color-palette:before,
+.ion-android-compass:before,
+.ion-android-contact:before,
+.ion-android-contacts:before,
+.ion-android-contract:before,
+.ion-android-create:before,
+.ion-android-delete:before,
+.ion-android-desktop:before,
+.ion-android-document:before,
+.ion-android-done:before,
+.ion-android-done-all:before,
+.ion-android-download:before,
+.ion-android-drafts:before,
+.ion-android-exit:before,
+.ion-android-expand:before,
+.ion-android-favorite:before,
+.ion-android-favorite-outline:before,
+.ion-android-film:before,
+.ion-android-folder:before,
+.ion-android-folder-open:before,
+.ion-android-funnel:before,
+.ion-android-globe:before,
+.ion-android-hand:before,
+.ion-android-hangout:before,
+.ion-android-happy:before,
+.ion-android-home:before,
+.ion-android-image:before,
+.ion-android-laptop:before,
+.ion-android-list:before,
+.ion-android-locate:before,
+.ion-android-lock:before,
+.ion-android-mail:before,
+.ion-android-map:before,
+.ion-android-menu:before,
+.ion-android-microphone:before,
+.ion-android-microphone-off:before,
+.ion-android-more-horizontal:before,
+.ion-android-more-vertical:before,
+.ion-android-navigate:before,
+.ion-android-notifications:before,
+.ion-android-notifications-none:before,
+.ion-android-notifications-off:before,
+.ion-android-open:before,
+.ion-android-options:before,
+.ion-android-people:before,
+.ion-android-person:before,
+.ion-android-person-add:before,
+.ion-android-phone-landscape:before,
+.ion-android-phone-portrait:before,
+.ion-android-pin:before,
+.ion-android-plane:before,
+.ion-android-playstore:before,
+.ion-android-print:before,
+.ion-android-radio-button-off:before,
+.ion-android-radio-button-on:before,
+.ion-android-refresh:before,
+.ion-android-remove:before,
+.ion-android-remove-circle:before,
+.ion-android-restaurant:before,
+.ion-android-sad:before,
+.ion-android-search:before,
+.ion-android-send:before,
+.ion-android-settings:before,
+.ion-android-share:before,
+.ion-android-share-alt:before,
+.ion-android-star:before,
+.ion-android-star-half:before,
+.ion-android-star-outline:before,
+.ion-android-stopwatch:before,
+.ion-android-subway:before,
+.ion-android-sunny:before,
+.ion-android-sync:before,
+.ion-android-textsms:before,
+.ion-android-time:before,
+.ion-android-train:before,
+.ion-android-unlock:before,
+.ion-android-upload:before,
+.ion-android-volume-down:before,
+.ion-android-volume-mute:before,
+.ion-android-volume-off:before,
+.ion-android-volume-up:before,
+.ion-android-walk:before,
+.ion-android-warning:before,
+.ion-android-watch:before,
+.ion-android-wifi:before,
+.ion-aperture:before,
+.ion-archive:before,
+.ion-arrow-down-a:before,
+.ion-arrow-down-b:before,
+.ion-arrow-down-c:before,
+.ion-arrow-expand:before,
+.ion-arrow-graph-down-left:before,
+.ion-arrow-graph-down-right:before,
+.ion-arrow-graph-up-left:before,
+.ion-arrow-graph-up-right:before,
+.ion-arrow-left-a:before,
+.ion-arrow-left-b:before,
+.ion-arrow-left-c:before,
+.ion-arrow-move:before,
+.ion-arrow-resize:before,
+.ion-arrow-return-left:before,
+.ion-arrow-return-right:before,
+.ion-arrow-right-a:before,
+.ion-arrow-right-b:before,
+.ion-arrow-right-c:before,
+.ion-arrow-shrink:before,
+.ion-arrow-swap:before,
+.ion-arrow-up-a:before,
+.ion-arrow-up-b:before,
+.ion-arrow-up-c:before,
+.ion-asterisk:before,
+.ion-at:before,
+.ion-backspace:before,
+.ion-backspace-outline:before,
+.ion-bag:before,
+.ion-battery-charging:before,
+.ion-battery-empty:before,
+.ion-battery-full:before,
+.ion-battery-half:before,
+.ion-battery-low:before,
+.ion-beaker:before,
+.ion-beer:before,
+.ion-bluetooth:before,
+.ion-bonfire:before,
+.ion-bookmark:before,
+.ion-bowtie:before,
+.ion-briefcase:before,
+.ion-bug:before,
+.ion-calculator:before,
+.ion-calendar:before,
+.ion-camera:before,
+.ion-card:before,
+.ion-cash:before,
+.ion-chatbox:before,
+.ion-chatbox-working:before,
+.ion-chatboxes:before,
+.ion-chatbubble:before,
+.ion-chatbubble-working:before,
+.ion-chatbubbles:before,
+.ion-checkmark:before,
+.ion-checkmark-circled:before,
+.ion-checkmark-round:before,
+.ion-chevron-down:before,
+.ion-chevron-left:before,
+.ion-chevron-right:before,
+.ion-chevron-up:before,
+.ion-clipboard:before,
+.ion-clock:before,
+.ion-close:before,
+.ion-close-circled:before,
+.ion-close-round:before,
+.ion-closed-captioning:before,
+.ion-cloud:before,
+.ion-code:before,
+.ion-code-download:before,
+.ion-code-working:before,
+.ion-coffee:before,
+.ion-compass:before,
+.ion-compose:before,
+.ion-connection-bars:before,
+.ion-contrast:before,
+.ion-crop:before,
+.ion-cube:before,
+.ion-disc:before,
+.ion-document:before,
+.ion-document-text:before,
+.ion-drag:before,
+.ion-earth:before,
+.ion-easel:before,
+.ion-edit:before,
+.ion-egg:before,
+.ion-eject:before,
+.ion-email:before,
+.ion-email-unread:before,
+.ion-erlenmeyer-flask:before,
+.ion-erlenmeyer-flask-bubbles:before,
+.ion-eye:before,
+.ion-eye-disabled:before,
+.ion-female:before,
+.ion-filing:before,
+.ion-film-marker:before,
+.ion-fireball:before,
+.ion-flag:before,
+.ion-flame:before,
+.ion-flash:before,
+.ion-flash-off:before,
+.ion-folder:before,
+.ion-fork:before,
+.ion-fork-repo:before,
+.ion-forward:before,
+.ion-funnel:before,
+.ion-gear-a:before,
+.ion-gear-b:before,
+.ion-grid:before,
+.ion-hammer:before,
+.ion-happy:before,
+.ion-happy-outline:before,
+.ion-headphone:before,
+.ion-heart:before,
+.ion-heart-broken:before,
+.ion-help:before,
+.ion-help-buoy:before,
+.ion-help-circled:before,
+.ion-home:before,
+.ion-icecream:before,
+.ion-image:before,
+.ion-images:before,
+.ion-information:before,
+.ion-information-circled:before,
+.ion-ionic:before,
+.ion-ios-alarm:before,
+.ion-ios-alarm-outline:before,
+.ion-ios-albums:before,
+.ion-ios-albums-outline:before,
+.ion-ios-americanfootball:before,
+.ion-ios-americanfootball-outline:before,
+.ion-ios-analytics:before,
+.ion-ios-analytics-outline:before,
+.ion-ios-arrow-back:before,
+.ion-ios-arrow-down:before,
+.ion-ios-arrow-forward:before,
+.ion-ios-arrow-left:before,
+.ion-ios-arrow-right:before,
+.ion-ios-arrow-thin-down:before,
+.ion-ios-arrow-thin-left:before,
+.ion-ios-arrow-thin-right:before,
+.ion-ios-arrow-thin-up:before,
+.ion-ios-arrow-up:before,
+.ion-ios-at:before,
+.ion-ios-at-outline:before,
+.ion-ios-barcode:before,
+.ion-ios-barcode-outline:before,
+.ion-ios-baseball:before,
+.ion-ios-baseball-outline:before,
+.ion-ios-basketball:before,
+.ion-ios-basketball-outline:before,
+.ion-ios-bell:before,
+.ion-ios-bell-outline:before,
+.ion-ios-body:before,
+.ion-ios-body-outline:before,
+.ion-ios-bolt:before,
+.ion-ios-bolt-outline:before,
+.ion-ios-book:before,
+.ion-ios-book-outline:before,
+.ion-ios-bookmarks:before,
+.ion-ios-bookmarks-outline:before,
+.ion-ios-box:before,
+.ion-ios-box-outline:before,
+.ion-ios-briefcase:before,
+.ion-ios-briefcase-outline:before,
+.ion-ios-browsers:before,
+.ion-ios-browsers-outline:before,
+.ion-ios-calculator:before,
+.ion-ios-calculator-outline:before,
+.ion-ios-calendar:before,
+.ion-ios-calendar-outline:before,
+.ion-ios-camera:before,
+.ion-ios-camera-outline:before,
+.ion-ios-cart:before,
+.ion-ios-cart-outline:before,
+.ion-ios-chatboxes:before,
+.ion-ios-chatboxes-outline:before,
+.ion-ios-chatbubble:before,
+.ion-ios-chatbubble-outline:before,
+.ion-ios-checkmark:before,
+.ion-ios-checkmark-empty:before,
+.ion-ios-checkmark-outline:before,
+.ion-ios-circle-filled:before,
+.ion-ios-circle-outline:before,
+.ion-ios-clock:before,
+.ion-ios-clock-outline:before,
+.ion-ios-close:before,
+.ion-ios-close-empty:before,
+.ion-ios-close-outline:before,
+.ion-ios-cloud:before,
+.ion-ios-cloud-download:before,
+.ion-ios-cloud-download-outline:before,
+.ion-ios-cloud-outline:before,
+.ion-ios-cloud-upload:before,
+.ion-ios-cloud-upload-outline:before,
+.ion-ios-cloudy:before,
+.ion-ios-cloudy-night:before,
+.ion-ios-cloudy-night-outline:before,
+.ion-ios-cloudy-outline:before,
+.ion-ios-cog:before,
+.ion-ios-cog-outline:before,
+.ion-ios-color-filter:before,
+.ion-ios-color-filter-outline:before,
+.ion-ios-color-wand:before,
+.ion-ios-color-wand-outline:before,
+.ion-ios-compose:before,
+.ion-ios-compose-outline:before,
+.ion-ios-contact:before,
+.ion-ios-contact-outline:before,
+.ion-ios-copy:before,
+.ion-ios-copy-outline:before,
+.ion-ios-crop:before,
+.ion-ios-crop-strong:before,
+.ion-ios-download:before,
+.ion-ios-download-outline:before,
+.ion-ios-drag:before,
+.ion-ios-email:before,
+.ion-ios-email-outline:before,
+.ion-ios-eye:before,
+.ion-ios-eye-outline:before,
+.ion-ios-fastforward:before,
+.ion-ios-fastforward-outline:before,
+.ion-ios-filing:before,
+.ion-ios-filing-outline:before,
+.ion-ios-film:before,
+.ion-ios-film-outline:before,
+.ion-ios-flag:before,
+.ion-ios-flag-outline:before,
+.ion-ios-flame:before,
+.ion-ios-flame-outline:before,
+.ion-ios-flask:before,
+.ion-ios-flask-outline:before,
+.ion-ios-flower:before,
+.ion-ios-flower-outline:before,
+.ion-ios-folder:before,
+.ion-ios-folder-outline:before,
+.ion-ios-football:before,
+.ion-ios-football-outline:before,
+.ion-ios-game-controller-a:before,
+.ion-ios-game-controller-a-outline:before,
+.ion-ios-game-controller-b:before,
+.ion-ios-game-controller-b-outline:before,
+.ion-ios-gear:before,
+.ion-ios-gear-outline:before,
+.ion-ios-glasses:before,
+.ion-ios-glasses-outline:before,
+.ion-ios-grid-view:before,
+.ion-ios-grid-view-outline:before,
+.ion-ios-heart:before,
+.ion-ios-heart-outline:before,
+.ion-ios-help:before,
+.ion-ios-help-empty:before,
+.ion-ios-help-outline:before,
+.ion-ios-home:before,
+.ion-ios-home-outline:before,
+.ion-ios-infinite:before,
+.ion-ios-infinite-outline:before,
+.ion-ios-information:before,
+.ion-ios-information-empty:before,
+.ion-ios-information-outline:before,
+.ion-ios-ionic-outline:before,
+.ion-ios-keypad:before,
+.ion-ios-keypad-outline:before,
+.ion-ios-lightbulb:before,
+.ion-ios-lightbulb-outline:before,
+.ion-ios-list:before,
+.ion-ios-list-outline:before,
+.ion-ios-location:before,
+.ion-ios-location-outline:before,
+.ion-ios-locked:before,
+.ion-ios-locked-outline:before,
+.ion-ios-loop:before,
+.ion-ios-loop-strong:before,
+.ion-ios-medical:before,
+.ion-ios-medical-outline:before,
+.ion-ios-medkit:before,
+.ion-ios-medkit-outline:before,
+.ion-ios-mic:before,
+.ion-ios-mic-off:before,
+.ion-ios-mic-outline:before,
+.ion-ios-minus:before,
+.ion-ios-minus-empty:before,
+.ion-ios-minus-outline:before,
+.ion-ios-monitor:before,
+.ion-ios-monitor-outline:before,
+.ion-ios-moon:before,
+.ion-ios-moon-outline:before,
+.ion-ios-more:before,
+.ion-ios-more-outline:before,
+.ion-ios-musical-note:before,
+.ion-ios-musical-notes:before,
+.ion-ios-navigate:before,
+.ion-ios-navigate-outline:before,
+.ion-ios-nutrition:before,
+.ion-ios-nutrition-outline:before,
+.ion-ios-paper:before,
+.ion-ios-paper-outline:before,
+.ion-ios-paperplane:before,
+.ion-ios-paperplane-outline:before,
+.ion-ios-partlysunny:before,
+.ion-ios-partlysunny-outline:before,
+.ion-ios-pause:before,
+.ion-ios-pause-outline:before,
+.ion-ios-paw:before,
+.ion-ios-paw-outline:before,
+.ion-ios-people:before,
+.ion-ios-people-outline:before,
+.ion-ios-person:before,
+.ion-ios-person-outline:before,
+.ion-ios-personadd:before,
+.ion-ios-personadd-outline:before,
+.ion-ios-photos:before,
+.ion-ios-photos-outline:before,
+.ion-ios-pie:before,
+.ion-ios-pie-outline:before,
+.ion-ios-pint:before,
+.ion-ios-pint-outline:before,
+.ion-ios-play:before,
+.ion-ios-play-outline:before,
+.ion-ios-plus:before,
+.ion-ios-plus-empty:before,
+.ion-ios-plus-outline:before,
+.ion-ios-pricetag:before,
+.ion-ios-pricetag-outline:before,
+.ion-ios-pricetags:before,
+.ion-ios-pricetags-outline:before,
+.ion-ios-printer:before,
+.ion-ios-printer-outline:before,
+.ion-ios-pulse:before,
+.ion-ios-pulse-strong:before,
+.ion-ios-rainy:before,
+.ion-ios-rainy-outline:before,
+.ion-ios-recording:before,
+.ion-ios-recording-outline:before,
+.ion-ios-redo:before,
+.ion-ios-redo-outline:before,
+.ion-ios-refresh:before,
+.ion-ios-refresh-empty:before,
+.ion-ios-refresh-outline:before,
+.ion-ios-reload:before,
+.ion-ios-reverse-camera:before,
+.ion-ios-reverse-camera-outline:before,
+.ion-ios-rewind:before,
+.ion-ios-rewind-outline:before,
+.ion-ios-rose:before,
+.ion-ios-rose-outline:before,
+.ion-ios-search:before,
+.ion-ios-search-strong:before,
+.ion-ios-settings:before,
+.ion-ios-settings-strong:before,
+.ion-ios-shuffle:before,
+.ion-ios-shuffle-strong:before,
+.ion-ios-skipbackward:before,
+.ion-ios-skipbackward-outline:before,
+.ion-ios-skipforward:before,
+.ion-ios-skipforward-outline:before,
+.ion-ios-snowy:before,
+.ion-ios-speedometer:before,
+.ion-ios-speedometer-outline:before,
+.ion-ios-star:before,
+.ion-ios-star-half:before,
+.ion-ios-star-outline:before,
+.ion-ios-stopwatch:before,
+.ion-ios-stopwatch-outline:before,
+.ion-ios-sunny:before,
+.ion-ios-sunny-outline:before,
+.ion-ios-telephone:before,
+.ion-ios-telephone-outline:before,
+.ion-ios-tennisball:before,
+.ion-ios-tennisball-outline:before,
+.ion-ios-thunderstorm:before,
+.ion-ios-thunderstorm-outline:before,
+.ion-ios-time:before,
+.ion-ios-time-outline:before,
+.ion-ios-timer:before,
+.ion-ios-timer-outline:before,
+.ion-ios-toggle:before,
+.ion-ios-toggle-outline:before,
+.ion-ios-trash:before,
+.ion-ios-trash-outline:before,
+.ion-ios-undo:before,
+.ion-ios-undo-outline:before,
+.ion-ios-unlocked:before,
+.ion-ios-unlocked-outline:before,
+.ion-ios-upload:before,
+.ion-ios-upload-outline:before,
+.ion-ios-videocam:before,
+.ion-ios-videocam-outline:before,
+.ion-ios-volume-high:before,
+.ion-ios-volume-low:before,
+.ion-ios-wineglass:before,
+.ion-ios-wineglass-outline:before,
+.ion-ios-world:before,
+.ion-ios-world-outline:before,
+.ion-ipad:before,
+.ion-iphone:before,
+.ion-ipod:before,
+.ion-jet:before,
+.ion-key:before,
+.ion-knife:before,
+.ion-laptop:before,
+.ion-leaf:before,
+.ion-levels:before,
+.ion-lightbulb:before,
+.ion-link:before,
+.ion-load-a:before,
+.ion-load-b:before,
+.ion-load-c:before,
+.ion-load-d:before,
+.ion-location:before,
+.ion-lock-combination:before,
+.ion-locked:before,
+.ion-log-in:before,
+.ion-log-out:before,
+.ion-loop:before,
+.ion-magnet:before,
+.ion-male:before,
+.ion-man:before,
+.ion-map:before,
+.ion-medkit:before,
+.ion-merge:before,
+.ion-mic-a:before,
+.ion-mic-b:before,
+.ion-mic-c:before,
+.ion-minus:before,
+.ion-minus-circled:before,
+.ion-minus-round:before,
+.ion-model-s:before,
+.ion-monitor:before,
+.ion-more:before,
+.ion-mouse:before,
+.ion-music-note:before,
+.ion-navicon:before,
+.ion-navicon-round:before,
+.ion-navigate:before,
+.ion-network:before,
+.ion-no-smoking:before,
+.ion-nuclear:before,
+.ion-outlet:before,
+.ion-paintbrush:before,
+.ion-paintbucket:before,
+.ion-paper-airplane:before,
+.ion-paperclip:before,
+.ion-pause:before,
+.ion-person:before,
+.ion-person-add:before,
+.ion-person-stalker:before,
+.ion-pie-graph:before,
+.ion-pin:before,
+.ion-pinpoint:before,
+.ion-pizza:before,
+.ion-plane:before,
+.ion-planet:before,
+.ion-play:before,
+.ion-playstation:before,
+.ion-plus:before,
+.ion-plus-circled:before,
+.ion-plus-round:before,
+.ion-podium:before,
+.ion-pound:before,
+.ion-power:before,
+.ion-pricetag:before,
+.ion-pricetags:before,
+.ion-printer:before,
+.ion-pull-request:before,
+.ion-qr-scanner:before,
+.ion-quote:before,
+.ion-radio-waves:before,
+.ion-record:before,
+.ion-refresh:before,
+.ion-reply:before,
+.ion-reply-all:before,
+.ion-ribbon-a:before,
+.ion-ribbon-b:before,
+.ion-sad:before,
+.ion-sad-outline:before,
+.ion-scissors:before,
+.ion-search:before,
+.ion-settings:before,
+.ion-share:before,
+.ion-shuffle:before,
+.ion-skip-backward:before,
+.ion-skip-forward:before,
+.ion-social-android:before,
+.ion-social-android-outline:before,
+.ion-social-angular:before,
+.ion-social-angular-outline:before,
+.ion-social-apple:before,
+.ion-social-apple-outline:before,
+.ion-social-bitcoin:before,
+.ion-social-bitcoin-outline:before,
+.ion-social-buffer:before,
+.ion-social-buffer-outline:before,
+.ion-social-chrome:before,
+.ion-social-chrome-outline:before,
+.ion-social-codepen:before,
+.ion-social-codepen-outline:before,
+.ion-social-css3:before,
+.ion-social-css3-outline:before,
+.ion-social-designernews:before,
+.ion-social-designernews-outline:before,
+.ion-social-dribbble:before,
+.ion-social-dribbble-outline:before,
+.ion-social-dropbox:before,
+.ion-social-dropbox-outline:before,
+.ion-social-euro:before,
+.ion-social-euro-outline:before,
+.ion-social-facebook:before,
+.ion-social-facebook-outline:before,
+.ion-social-foursquare:before,
+.ion-social-foursquare-outline:before,
+.ion-social-freebsd-devil:before,
+.ion-social-github:before,
+.ion-social-github-outline:before,
+.ion-social-google:before,
+.ion-social-google-outline:before,
+.ion-social-googleplus:before,
+.ion-social-googleplus-outline:before,
+.ion-social-hackernews:before,
+.ion-social-hackernews-outline:before,
+.ion-social-html5:before,
+.ion-social-html5-outline:before,
+.ion-social-instagram:before,
+.ion-social-instagram-outline:before,
+.ion-social-javascript:before,
+.ion-social-javascript-outline:before,
+.ion-social-linkedin:before,
+.ion-social-linkedin-outline:before,
+.ion-social-markdown:before,
+.ion-social-nodejs:before,
+.ion-social-octocat:before,
+.ion-social-pinterest:before,
+.ion-social-pinterest-outline:before,
+.ion-social-python:before,
+.ion-social-reddit:before,
+.ion-social-reddit-outline:before,
+.ion-social-rss:before,
+.ion-social-rss-outline:before,
+.ion-social-sass:before,
+.ion-social-skype:before,
+.ion-social-skype-outline:before,
+.ion-social-snapchat:before,
+.ion-social-snapchat-outline:before,
+.ion-social-tumblr:before,
+.ion-social-tumblr-outline:before,
+.ion-social-tux:before,
+.ion-social-twitch:before,
+.ion-social-twitch-outline:before,
+.ion-social-twitter:before,
+.ion-social-twitter-outline:before,
+.ion-social-usd:before,
+.ion-social-usd-outline:before,
+.ion-social-vimeo:before,
+.ion-social-vimeo-outline:before,
+.ion-social-whatsapp:before,
+.ion-social-whatsapp-outline:before,
+.ion-social-windows:before,
+.ion-social-windows-outline:before,
+.ion-social-wordpress:before,
+.ion-social-wordpress-outline:before,
+.ion-social-yahoo:before,
+.ion-social-yahoo-outline:before,
+.ion-social-yen:before,
+.ion-social-yen-outline:before,
+.ion-social-youtube:before,
+.ion-social-youtube-outline:before,
+.ion-soup-can:before,
+.ion-soup-can-outline:before,
+.ion-speakerphone:before,
+.ion-speedometer:before,
+.ion-spoon:before,
+.ion-star:before,
+.ion-stats-bars:before,
+.ion-steam:before,
+.ion-stop:before,
+.ion-thermometer:before,
+.ion-thumbsdown:before,
+.ion-thumbsup:before,
+.ion-toggle:before,
+.ion-toggle-filled:before,
+.ion-transgender:before,
+.ion-trash-a:before,
+.ion-trash-b:before,
+.ion-trophy:before,
+.ion-tshirt:before,
+.ion-tshirt-outline:before,
+.ion-umbrella:before,
+.ion-university:before,
+.ion-unlocked:before,
+.ion-upload:before,
+.ion-usb:before,
+.ion-videocamera:before,
+.ion-volume-high:before,
+.ion-volume-low:before,
+.ion-volume-medium:before,
+.ion-volume-mute:before,
+.ion-wand:before,
+.ion-waterdrop:before,
+.ion-wifi:before,
+.ion-wineglass:before,
+.ion-woman:before,
+.ion-wrench:before,
+.ion-xbox:before {
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ion-spin,
+.ion-loading-a,
+.ion-loading-b,
+.ion-loading-c,
+.ion-loading-d,
+.ion-looping,
+.ion-refreshing,
+.ion-ios7-reloading {
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.ion-loading-a {
+  -webkit-animation-timing-function: steps(8, start);
+  -moz-animation-timing-function: steps(8, start);
+  animation-timing-function: steps(8, start);
+}
+.ion-alert:before {
+  content: "\f101";
+}
+.ion-alert-circled:before {
+  content: "\f100";
+}
+.ion-android-add:before {
+  content: "\f2c7";
+}
+.ion-android-add-circle:before {
+  content: "\f359";
+}
+.ion-android-alarm-clock:before {
+  content: "\f35a";
+}
+.ion-android-alert:before {
+  content: "\f35b";
+}
+.ion-android-apps:before {
+  content: "\f35c";
+}
+.ion-android-archive:before {
+  content: "\f2c9";
+}
+.ion-android-arrow-back:before {
+  content: "\f2ca";
+}
+.ion-android-arrow-down:before {
+  content: "\f35d";
+}
+.ion-android-arrow-dropdown:before {
+  content: "\f35f";
+}
+.ion-android-arrow-dropdown-circle:before {
+  content: "\f35e";
+}
+.ion-android-arrow-dropleft:before {
+  content: "\f361";
+}
+.ion-android-arrow-dropleft-circle:before {
+  content: "\f360";
+}
+.ion-android-arrow-dropright:before {
+  content: "\f363";
+}
+.ion-android-arrow-dropright-circle:before {
+  content: "\f362";
+}
+.ion-android-arrow-dropup:before {
+  content: "\f365";
+}
+.ion-android-arrow-dropup-circle:before {
+  content: "\f364";
+}
+.ion-android-arrow-forward:before {
+  content: "\f30f";
+}
+.ion-android-arrow-up:before {
+  content: "\f366";
+}
+.ion-android-attach:before {
+  content: "\f367";
+}
+.ion-android-bar:before {
+  content: "\f368";
+}
+.ion-android-bicycle:before {
+  content: "\f369";
+}
+.ion-android-boat:before {
+  content: "\f36a";
+}
+.ion-android-bookmark:before {
+  content: "\f36b";
+}
+.ion-android-bulb:before {
+  content: "\f36c";
+}
+.ion-android-bus:before {
+  content: "\f36d";
+}
+.ion-android-calendar:before {
+  content: "\f2d1";
+}
+.ion-android-call:before {
+  content: "\f2d2";
+}
+.ion-android-camera:before {
+  content: "\f2d3";
+}
+.ion-android-cancel:before {
+  content: "\f36e";
+}
+.ion-android-car:before {
+  content: "\f36f";
+}
+.ion-android-cart:before {
+  content: "\f370";
+}
+.ion-android-chat:before {
+  content: "\f2d4";
+}
+.ion-android-checkbox:before {
+  content: "\f374";
+}
+.ion-android-checkbox-blank:before {
+  content: "\f371";
+}
+.ion-android-checkbox-outline:before {
+  content: "\f373";
+}
+.ion-android-checkbox-outline-blank:before {
+  content: "\f372";
+}
+.ion-android-checkmark-circle:before {
+  content: "\f375";
+}
+.ion-android-clipboard:before {
+  content: "\f376";
+}
+.ion-android-close:before {
+  content: "\f2d7";
+}
+.ion-android-cloud:before {
+  content: "\f37a";
+}
+.ion-android-cloud-circle:before {
+  content: "\f377";
+}
+.ion-android-cloud-done:before {
+  content: "\f378";
+}
+.ion-android-cloud-outline:before {
+  content: "\f379";
+}
+.ion-android-color-palette:before {
+  content: "\f37b";
+}
+.ion-android-compass:before {
+  content: "\f37c";
+}
+.ion-android-contact:before {
+  content: "\f2d8";
+}
+.ion-android-contacts:before {
+  content: "\f2d9";
+}
+.ion-android-contract:before {
+  content: "\f37d";
+}
+.ion-android-create:before {
+  content: "\f37e";
+}
+.ion-android-delete:before {
+  content: "\f37f";
+}
+.ion-android-desktop:before {
+  content: "\f380";
+}
+.ion-android-document:before {
+  content: "\f381";
+}
+.ion-android-done:before {
+  content: "\f383";
+}
+.ion-android-done-all:before {
+  content: "\f382";
+}
+.ion-android-download:before {
+  content: "\f2dd";
+}
+.ion-android-drafts:before {
+  content: "\f384";
+}
+.ion-android-exit:before {
+  content: "\f385";
+}
+.ion-android-expand:before {
+  content: "\f386";
+}
+.ion-android-favorite:before {
+  content: "\f388";
+}
+.ion-android-favorite-outline:before {
+  content: "\f387";
+}
+.ion-android-film:before {
+  content: "\f389";
+}
+.ion-android-folder:before {
+  content: "\f2e0";
+}
+.ion-android-folder-open:before {
+  content: "\f38a";
+}
+.ion-android-funnel:before {
+  content: "\f38b";
+}
+.ion-android-globe:before {
+  content: "\f38c";
+}
+.ion-android-hand:before {
+  content: "\f2e3";
+}
+.ion-android-hangout:before {
+  content: "\f38d";
+}
+.ion-android-happy:before {
+  content: "\f38e";
+}
+.ion-android-home:before {
+  content: "\f38f";
+}
+.ion-android-image:before {
+  content: "\f2e4";
+}
+.ion-android-laptop:before {
+  content: "\f390";
+}
+.ion-android-list:before {
+  content: "\f391";
+}
+.ion-android-locate:before {
+  content: "\f2e9";
+}
+.ion-android-lock:before {
+  content: "\f392";
+}
+.ion-android-mail:before {
+  content: "\f2eb";
+}
+.ion-android-map:before {
+  content: "\f393";
+}
+.ion-android-menu:before {
+  content: "\f394";
+}
+.ion-android-microphone:before {
+  content: "\f2ec";
+}
+.ion-android-microphone-off:before {
+  content: "\f395";
+}
+.ion-android-more-horizontal:before {
+  content: "\f396";
+}
+.ion-android-more-vertical:before {
+  content: "\f397";
+}
+.ion-android-navigate:before {
+  content: "\f398";
+}
+.ion-android-notifications:before {
+  content: "\f39b";
+}
+.ion-android-notifications-none:before {
+  content: "\f399";
+}
+.ion-android-notifications-off:before {
+  content: "\f39a";
+}
+.ion-android-open:before {
+  content: "\f39c";
+}
+.ion-android-options:before {
+  content: "\f39d";
+}
+.ion-android-people:before {
+  content: "\f39e";
+}
+.ion-android-person:before {
+  content: "\f3a0";
+}
+.ion-android-person-add:before {
+  content: "\f39f";
+}
+.ion-android-phone-landscape:before {
+  content: "\f3a1";
+}
+.ion-android-phone-portrait:before {
+  content: "\f3a2";
+}
+.ion-android-pin:before {
+  content: "\f3a3";
+}
+.ion-android-plane:before {
+  content: "\f3a4";
+}
+.ion-android-playstore:before {
+  content: "\f2f0";
+}
+.ion-android-print:before {
+  content: "\f3a5";
+}
+.ion-android-radio-button-off:before {
+  content: "\f3a6";
+}
+.ion-android-radio-button-on:before {
+  content: "\f3a7";
+}
+.ion-android-refresh:before {
+  content: "\f3a8";
+}
+.ion-android-remove:before {
+  content: "\f2f4";
+}
+.ion-android-remove-circle:before {
+  content: "\f3a9";
+}
+.ion-android-restaurant:before {
+  content: "\f3aa";
+}
+.ion-android-sad:before {
+  content: "\f3ab";
+}
+.ion-android-search:before {
+  content: "\f2f5";
+}
+.ion-android-send:before {
+  content: "\f2f6";
+}
+.ion-android-settings:before {
+  content: "\f2f7";
+}
+.ion-android-share:before {
+  content: "\f2f8";
+}
+.ion-android-share-alt:before {
+  content: "\f3ac";
+}
+.ion-android-star:before {
+  content: "\f2fc";
+}
+.ion-android-star-half:before {
+  content: "\f3ad";
+}
+.ion-android-star-outline:before {
+  content: "\f3ae";
+}
+.ion-android-stopwatch:before {
+  content: "\f2fd";
+}
+.ion-android-subway:before {
+  content: "\f3af";
+}
+.ion-android-sunny:before {
+  content: "\f3b0";
+}
+.ion-android-sync:before {
+  content: "\f3b1";
+}
+.ion-android-textsms:before {
+  content: "\f3b2";
+}
+.ion-android-time:before {
+  content: "\f3b3";
+}
+.ion-android-train:before {
+  content: "\f3b4";
+}
+.ion-android-unlock:before {
+  content: "\f3b5";
+}
+.ion-android-upload:before {
+  content: "\f3b6";
+}
+.ion-android-volume-down:before {
+  content: "\f3b7";
+}
+.ion-android-volume-mute:before {
+  content: "\f3b8";
+}
+.ion-android-volume-off:before {
+  content: "\f3b9";
+}
+.ion-android-volume-up:before {
+  content: "\f3ba";
+}
+.ion-android-walk:before {
+  content: "\f3bb";
+}
+.ion-android-warning:before {
+  content: "\f3bc";
+}
+.ion-android-watch:before {
+  content: "\f3bd";
+}
+.ion-android-wifi:before {
+  content: "\f305";
+}
+.ion-aperture:before {
+  content: "\f313";
+}
+.ion-archive:before {
+  content: "\f102";
+}
+.ion-arrow-down-a:before {
+  content: "\f103";
+}
+.ion-arrow-down-b:before {
+  content: "\f104";
+}
+.ion-arrow-down-c:before {
+  content: "\f105";
+}
+.ion-arrow-expand:before {
+  content: "\f25e";
+}
+.ion-arrow-graph-down-left:before {
+  content: "\f25f";
+}
+.ion-arrow-graph-down-right:before {
+  content: "\f260";
+}
+.ion-arrow-graph-up-left:before {
+  content: "\f261";
+}
+.ion-arrow-graph-up-right:before {
+  content: "\f262";
+}
+.ion-arrow-left-a:before {
+  content: "\f106";
+}
+.ion-arrow-left-b:before {
+  content: "\f107";
+}
+.ion-arrow-left-c:before {
+  content: "\f108";
+}
+.ion-arrow-move:before {
+  content: "\f263";
+}
+.ion-arrow-resize:before {
+  content: "\f264";
+}
+.ion-arrow-return-left:before {
+  content: "\f265";
+}
+.ion-arrow-return-right:before {
+  content: "\f266";
+}
+.ion-arrow-right-a:before {
+  content: "\f109";
+}
+.ion-arrow-right-b:before {
+  content: "\f10a";
+}
+.ion-arrow-right-c:before {
+  content: "\f10b";
+}
+.ion-arrow-shrink:before {
+  content: "\f267";
+}
+.ion-arrow-swap:before {
+  content: "\f268";
+}
+.ion-arrow-up-a:before {
+  content: "\f10c";
+}
+.ion-arrow-up-b:before {
+  content: "\f10d";
+}
+.ion-arrow-up-c:before {
+  content: "\f10e";
+}
+.ion-asterisk:before {
+  content: "\f314";
+}
+.ion-at:before {
+  content: "\f10f";
+}
+.ion-backspace:before {
+  content: "\f3bf";
+}
+.ion-backspace-outline:before {
+  content: "\f3be";
+}
+.ion-bag:before {
+  content: "\f110";
+}
+.ion-battery-charging:before {
+  content: "\f111";
+}
+.ion-battery-empty:before {
+  content: "\f112";
+}
+.ion-battery-full:before {
+  content: "\f113";
+}
+.ion-battery-half:before {
+  content: "\f114";
+}
+.ion-battery-low:before {
+  content: "\f115";
+}
+.ion-beaker:before {
+  content: "\f269";
+}
+.ion-beer:before {
+  content: "\f26a";
+}
+.ion-bluetooth:before {
+  content: "\f116";
+}
+.ion-bonfire:before {
+  content: "\f315";
+}
+.ion-bookmark:before {
+  content: "\f26b";
+}
+.ion-bowtie:before {
+  content: "\f3c0";
+}
+.ion-briefcase:before {
+  content: "\f26c";
+}
+.ion-bug:before {
+  content: "\f2be";
+}
+.ion-calculator:before {
+  content: "\f26d";
+}
+.ion-calendar:before {
+  content: "\f117";
+}
+.ion-camera:before {
+  content: "\f118";
+}
+.ion-card:before {
+  content: "\f119";
+}
+.ion-cash:before {
+  content: "\f316";
+}
+.ion-chatbox:before {
+  content: "\f11b";
+}
+.ion-chatbox-working:before {
+  content: "\f11a";
+}
+.ion-chatboxes:before {
+  content: "\f11c";
+}
+.ion-chatbubble:before {
+  content: "\f11e";
+}
+.ion-chatbubble-working:before {
+  content: "\f11d";
+}
+.ion-chatbubbles:before {
+  content: "\f11f";
+}
+.ion-checkmark:before {
+  content: "\f122";
+}
+.ion-checkmark-circled:before {
+  content: "\f120";
+}
+.ion-checkmark-round:before {
+  content: "\f121";
+}
+.ion-chevron-down:before {
+  content: "\f123";
+}
+.ion-chevron-left:before {
+  content: "\f124";
+}
+.ion-chevron-right:before {
+  content: "\f125";
+}
+.ion-chevron-up:before {
+  content: "\f126";
+}
+.ion-clipboard:before {
+  content: "\f127";
+}
+.ion-clock:before {
+  content: "\f26e";
+}
+.ion-close:before {
+  content: "\f12a";
+}
+.ion-close-circled:before {
+  content: "\f128";
+}
+.ion-close-round:before {
+  content: "\f129";
+}
+.ion-closed-captioning:before {
+  content: "\f317";
+}
+.ion-cloud:before {
+  content: "\f12b";
+}
+.ion-code:before {
+  content: "\f271";
+}
+.ion-code-download:before {
+  content: "\f26f";
+}
+.ion-code-working:before {
+  content: "\f270";
+}
+.ion-coffee:before {
+  content: "\f272";
+}
+.ion-compass:before {
+  content: "\f273";
+}
+.ion-compose:before {
+  content: "\f12c";
+}
+.ion-connection-bars:before {
+  content: "\f274";
+}
+.ion-contrast:before {
+  content: "\f275";
+}
+.ion-crop:before {
+  content: "\f3c1";
+}
+.ion-cube:before {
+  content: "\f318";
+}
+.ion-disc:before {
+  content: "\f12d";
+}
+.ion-document:before {
+  content: "\f12f";
+}
+.ion-document-text:before {
+  content: "\f12e";
+}
+.ion-drag:before {
+  content: "\f130";
+}
+.ion-earth:before {
+  content: "\f276";
+}
+.ion-easel:before {
+  content: "\f3c2";
+}
+.ion-edit:before {
+  content: "\f2bf";
+}
+.ion-egg:before {
+  content: "\f277";
+}
+.ion-eject:before {
+  content: "\f131";
+}
+.ion-email:before {
+  content: "\f132";
+}
+.ion-email-unread:before {
+  content: "\f3c3";
+}
+.ion-erlenmeyer-flask:before {
+  content: "\f3c5";
+}
+.ion-erlenmeyer-flask-bubbles:before {
+  content: "\f3c4";
+}
+.ion-eye:before {
+  content: "\f133";
+}
+.ion-eye-disabled:before {
+  content: "\f306";
+}
+.ion-female:before {
+  content: "\f278";
+}
+.ion-filing:before {
+  content: "\f134";
+}
+.ion-film-marker:before {
+  content: "\f135";
+}
+.ion-fireball:before {
+  content: "\f319";
+}
+.ion-flag:before {
+  content: "\f279";
+}
+.ion-flame:before {
+  content: "\f31a";
+}
+.ion-flash:before {
+  content: "\f137";
+}
+.ion-flash-off:before {
+  content: "\f136";
+}
+.ion-folder:before {
+  content: "\f139";
+}
+.ion-fork:before {
+  content: "\f27a";
+}
+.ion-fork-repo:before {
+  content: "\f2c0";
+}
+.ion-forward:before {
+  content: "\f13a";
+}
+.ion-funnel:before {
+  content: "\f31b";
+}
+.ion-gear-a:before {
+  content: "\f13d";
+}
+.ion-gear-b:before {
+  content: "\f13e";
+}
+.ion-grid:before {
+  content: "\f13f";
+}
+.ion-hammer:before {
+  content: "\f27b";
+}
+.ion-happy:before {
+  content: "\f31c";
+}
+.ion-happy-outline:before {
+  content: "\f3c6";
+}
+.ion-headphone:before {
+  content: "\f140";
+}
+.ion-heart:before {
+  content: "\f141";
+}
+.ion-heart-broken:before {
+  content: "\f31d";
+}
+.ion-help:before {
+  content: "\f143";
+}
+.ion-help-buoy:before {
+  content: "\f27c";
+}
+.ion-help-circled:before {
+  content: "\f142";
+}
+.ion-home:before {
+  content: "\f144";
+}
+.ion-icecream:before {
+  content: "\f27d";
+}
+.ion-image:before {
+  content: "\f147";
+}
+.ion-images:before {
+  content: "\f148";
+}
+.ion-information:before {
+  content: "\f14a";
+}
+.ion-information-circled:before {
+  content: "\f149";
+}
+.ion-ionic:before {
+  content: "\f14b";
+}
+.ion-ios-alarm:before {
+  content: "\f3c8";
+}
+.ion-ios-alarm-outline:before {
+  content: "\f3c7";
+}
+.ion-ios-albums:before {
+  content: "\f3ca";
+}
+.ion-ios-albums-outline:before {
+  content: "\f3c9";
+}
+.ion-ios-americanfootball:before {
+  content: "\f3cc";
+}
+.ion-ios-americanfootball-outline:before {
+  content: "\f3cb";
+}
+.ion-ios-analytics:before {
+  content: "\f3ce";
+}
+.ion-ios-analytics-outline:before {
+  content: "\f3cd";
+}
+.ion-ios-arrow-back:before {
+  content: "\f3cf";
+}
+.ion-ios-arrow-down:before {
+  content: "\f3d0";
+}
+.ion-ios-arrow-forward:before {
+  content: "\f3d1";
+}
+.ion-ios-arrow-left:before {
+  content: "\f3d2";
+}
+.ion-ios-arrow-right:before {
+  content: "\f3d3";
+}
+.ion-ios-arrow-thin-down:before {
+  content: "\f3d4";
+}
+.ion-ios-arrow-thin-left:before {
+  content: "\f3d5";
+}
+.ion-ios-arrow-thin-right:before {
+  content: "\f3d6";
+}
+.ion-ios-arrow-thin-up:before {
+  content: "\f3d7";
+}
+.ion-ios-arrow-up:before {
+  content: "\f3d8";
+}
+.ion-ios-at:before {
+  content: "\f3da";
+}
+.ion-ios-at-outline:before {
+  content: "\f3d9";
+}
+.ion-ios-barcode:before {
+  content: "\f3dc";
+}
+.ion-ios-barcode-outline:before {
+  content: "\f3db";
+}
+.ion-ios-baseball:before {
+  content: "\f3de";
+}
+.ion-ios-baseball-outline:before {
+  content: "\f3dd";
+}
+.ion-ios-basketball:before {
+  content: "\f3e0";
+}
+.ion-ios-basketball-outline:before {
+  content: "\f3df";
+}
+.ion-ios-bell:before {
+  content: "\f3e2";
+}
+.ion-ios-bell-outline:before {
+  content: "\f3e1";
+}
+.ion-ios-body:before {
+  content: "\f3e4";
+}
+.ion-ios-body-outline:before {
+  content: "\f3e3";
+}
+.ion-ios-bolt:before {
+  content: "\f3e6";
+}
+.ion-ios-bolt-outline:before {
+  content: "\f3e5";
+}
+.ion-ios-book:before {
+  content: "\f3e8";
+}
+.ion-ios-book-outline:before {
+  content: "\f3e7";
+}
+.ion-ios-bookmarks:before {
+  content: "\f3ea";
+}
+.ion-ios-bookmarks-outline:before {
+  content: "\f3e9";
+}
+.ion-ios-box:before {
+  content: "\f3ec";
+}
+.ion-ios-box-outline:before {
+  content: "\f3eb";
+}
+.ion-ios-briefcase:before {
+  content: "\f3ee";
+}
+.ion-ios-briefcase-outline:before {
+  content: "\f3ed";
+}
+.ion-ios-browsers:before {
+  content: "\f3f0";
+}
+.ion-ios-browsers-outline:before {
+  content: "\f3ef";
+}
+.ion-ios-calculator:before {
+  content: "\f3f2";
+}
+.ion-ios-calculator-outline:before {
+  content: "\f3f1";
+}
+.ion-ios-calendar:before {
+  content: "\f3f4";
+}
+.ion-ios-calendar-outline:before {
+  content: "\f3f3";
+}
+.ion-ios-camera:before {
+  content: "\f3f6";
+}
+.ion-ios-camera-outline:before {
+  content: "\f3f5";
+}
+.ion-ios-cart:before {
+  content: "\f3f8";
+}
+.ion-ios-cart-outline:before {
+  content: "\f3f7";
+}
+.ion-ios-chatboxes:before {
+  content: "\f3fa";
+}
+.ion-ios-chatboxes-outline:before {
+  content: "\f3f9";
+}
+.ion-ios-chatbubble:before {
+  content: "\f3fc";
+}
+.ion-ios-chatbubble-outline:before {
+  content: "\f3fb";
+}
+.ion-ios-checkmark:before {
+  content: "\f3ff";
+}
+.ion-ios-checkmark-empty:before {
+  content: "\f3fd";
+}
+.ion-ios-checkmark-outline:before {
+  content: "\f3fe";
+}
+.ion-ios-circle-filled:before {
+  content: "\f400";
+}
+.ion-ios-circle-outline:before {
+  content: "\f401";
+}
+.ion-ios-clock:before {
+  content: "\f403";
+}
+.ion-ios-clock-outline:before {
+  content: "\f402";
+}
+.ion-ios-close:before {
+  content: "\f406";
+}
+.ion-ios-close-empty:before {
+  content: "\f404";
+}
+.ion-ios-close-outline:before {
+  content: "\f405";
+}
+.ion-ios-cloud:before {
+  content: "\f40c";
+}
+.ion-ios-cloud-download:before {
+  content: "\f408";
+}
+.ion-ios-cloud-download-outline:before {
+  content: "\f407";
+}
+.ion-ios-cloud-outline:before {
+  content: "\f409";
+}
+.ion-ios-cloud-upload:before {
+  content: "\f40b";
+}
+.ion-ios-cloud-upload-outline:before {
+  content: "\f40a";
+}
+.ion-ios-cloudy:before {
+  content: "\f410";
+}
+.ion-ios-cloudy-night:before {
+  content: "\f40e";
+}
+.ion-ios-cloudy-night-outline:before {
+  content: "\f40d";
+}
+.ion-ios-cloudy-outline:before {
+  content: "\f40f";
+}
+.ion-ios-cog:before {
+  content: "\f412";
+}
+.ion-ios-cog-outline:before {
+  content: "\f411";
+}
+.ion-ios-color-filter:before {
+  content: "\f414";
+}
+.ion-ios-color-filter-outline:before {
+  content: "\f413";
+}
+.ion-ios-color-wand:before {
+  content: "\f416";
+}
+.ion-ios-color-wand-outline:before {
+  content: "\f415";
+}
+.ion-ios-compose:before {
+  content: "\f418";
+}
+.ion-ios-compose-outline:before {
+  content: "\f417";
+}
+.ion-ios-contact:before {
+  content: "\f41a";
+}
+.ion-ios-contact-outline:before {
+  content: "\f419";
+}
+.ion-ios-copy:before {
+  content: "\f41c";
+}
+.ion-ios-copy-outline:before {
+  content: "\f41b";
+}
+.ion-ios-crop:before {
+  content: "\f41e";
+}
+.ion-ios-crop-strong:before {
+  content: "\f41d";
+}
+.ion-ios-download:before {
+  content: "\f420";
+}
+.ion-ios-download-outline:before {
+  content: "\f41f";
+}
+.ion-ios-drag:before {
+  content: "\f421";
+}
+.ion-ios-email:before {
+  content: "\f423";
+}
+.ion-ios-email-outline:before {
+  content: "\f422";
+}
+.ion-ios-eye:before {
+  content: "\f425";
+}
+.ion-ios-eye-outline:before {
+  content: "\f424";
+}
+.ion-ios-fastforward:before {
+  content: "\f427";
+}
+.ion-ios-fastforward-outline:before {
+  content: "\f426";
+}
+.ion-ios-filing:before {
+  content: "\f429";
+}
+.ion-ios-filing-outline:before {
+  content: "\f428";
+}
+.ion-ios-film:before {
+  content: "\f42b";
+}
+.ion-ios-film-outline:before {
+  content: "\f42a";
+}
+.ion-ios-flag:before {
+  content: "\f42d";
+}
+.ion-ios-flag-outline:before {
+  content: "\f42c";
+}
+.ion-ios-flame:before {
+  content: "\f42f";
+}
+.ion-ios-flame-outline:before {
+  content: "\f42e";
+}
+.ion-ios-flask:before {
+  content: "\f431";
+}
+.ion-ios-flask-outline:before {
+  content: "\f430";
+}
+.ion-ios-flower:before {
+  content: "\f433";
+}
+.ion-ios-flower-outline:before {
+  content: "\f432";
+}
+.ion-ios-folder:before {
+  content: "\f435";
+}
+.ion-ios-folder-outline:before {
+  content: "\f434";
+}
+.ion-ios-football:before {
+  content: "\f437";
+}
+.ion-ios-football-outline:before {
+  content: "\f436";
+}
+.ion-ios-game-controller-a:before {
+  content: "\f439";
+}
+.ion-ios-game-controller-a-outline:before {
+  content: "\f438";
+}
+.ion-ios-game-controller-b:before {
+  content: "\f43b";
+}
+.ion-ios-game-controller-b-outline:before {
+  content: "\f43a";
+}
+.ion-ios-gear:before {
+  content: "\f43d";
+}
+.ion-ios-gear-outline:before {
+  content: "\f43c";
+}
+.ion-ios-glasses:before {
+  content: "\f43f";
+}
+.ion-ios-glasses-outline:before {
+  content: "\f43e";
+}
+.ion-ios-grid-view:before {
+  content: "\f441";
+}
+.ion-ios-grid-view-outline:before {
+  content: "\f440";
+}
+.ion-ios-heart:before {
+  content: "\f443";
+}
+.ion-ios-heart-outline:before {
+  content: "\f442";
+}
+.ion-ios-help:before {
+  content: "\f446";
+}
+.ion-ios-help-empty:before {
+  content: "\f444";
+}
+.ion-ios-help-outline:before {
+  content: "\f445";
+}
+.ion-ios-home:before {
+  content: "\f448";
+}
+.ion-ios-home-outline:before {
+  content: "\f447";
+}
+.ion-ios-infinite:before {
+  content: "\f44a";
+}
+.ion-ios-infinite-outline:before {
+  content: "\f449";
+}
+.ion-ios-information:before {
+  content: "\f44d";
+}
+.ion-ios-information-empty:before {
+  content: "\f44b";
+}
+.ion-ios-information-outline:before {
+  content: "\f44c";
+}
+.ion-ios-ionic-outline:before {
+  content: "\f44e";
+}
+.ion-ios-keypad:before {
+  content: "\f450";
+}
+.ion-ios-keypad-outline:before {
+  content: "\f44f";
+}
+.ion-ios-lightbulb:before {
+  content: "\f452";
+}
+.ion-ios-lightbulb-outline:before {
+  content: "\f451";
+}
+.ion-ios-list:before {
+  content: "\f454";
+}
+.ion-ios-list-outline:before {
+  content: "\f453";
+}
+.ion-ios-location:before {
+  content: "\f456";
+}
+.ion-ios-location-outline:before {
+  content: "\f455";
+}
+.ion-ios-locked:before {
+  content: "\f458";
+}
+.ion-ios-locked-outline:before {
+  content: "\f457";
+}
+.ion-ios-loop:before {
+  content: "\f45a";
+}
+.ion-ios-loop-strong:before {
+  content: "\f459";
+}
+.ion-ios-medical:before {
+  content: "\f45c";
+}
+.ion-ios-medical-outline:before {
+  content: "\f45b";
+}
+.ion-ios-medkit:before {
+  content: "\f45e";
+}
+.ion-ios-medkit-outline:before {
+  content: "\f45d";
+}
+.ion-ios-mic:before {
+  content: "\f461";
+}
+.ion-ios-mic-off:before {
+  content: "\f45f";
+}
+.ion-ios-mic-outline:before {
+  content: "\f460";
+}
+.ion-ios-minus:before {
+  content: "\f464";
+}
+.ion-ios-minus-empty:before {
+  content: "\f462";
+}
+.ion-ios-minus-outline:before {
+  content: "\f463";
+}
+.ion-ios-monitor:before {
+  content: "\f466";
+}
+.ion-ios-monitor-outline:before {
+  content: "\f465";
+}
+.ion-ios-moon:before {
+  content: "\f468";
+}
+.ion-ios-moon-outline:before {
+  content: "\f467";
+}
+.ion-ios-more:before {
+  content: "\f46a";
+}
+.ion-ios-more-outline:before {
+  content: "\f469";
+}
+.ion-ios-musical-note:before {
+  content: "\f46b";
+}
+.ion-ios-musical-notes:before {
+  content: "\f46c";
+}
+.ion-ios-navigate:before {
+  content: "\f46e";
+}
+.ion-ios-navigate-outline:before {
+  content: "\f46d";
+}
+.ion-ios-nutrition:before {
+  content: "\f470";
+}
+.ion-ios-nutrition-outline:before {
+  content: "\f46f";
+}
+.ion-ios-paper:before {
+  content: "\f472";
+}
+.ion-ios-paper-outline:before {
+  content: "\f471";
+}
+.ion-ios-paperplane:before {
+  content: "\f474";
+}
+.ion-ios-paperplane-outline:before {
+  content: "\f473";
+}
+.ion-ios-partlysunny:before {
+  content: "\f476";
+}
+.ion-ios-partlysunny-outline:before {
+  content: "\f475";
+}
+.ion-ios-pause:before {
+  content: "\f478";
+}
+.ion-ios-pause-outline:before {
+  content: "\f477";
+}
+.ion-ios-paw:before {
+  content: "\f47a";
+}
+.ion-ios-paw-outline:before {
+  content: "\f479";
+}
+.ion-ios-people:before {
+  content: "\f47c";
+}
+.ion-ios-people-outline:before {
+  content: "\f47b";
+}
+.ion-ios-person:before {
+  content: "\f47e";
+}
+.ion-ios-person-outline:before {
+  content: "\f47d";
+}
+.ion-ios-personadd:before {
+  content: "\f480";
+}
+.ion-ios-personadd-outline:before {
+  content: "\f47f";
+}
+.ion-ios-photos:before {
+  content: "\f482";
+}
+.ion-ios-photos-outline:before {
+  content: "\f481";
+}
+.ion-ios-pie:before {
+  content: "\f484";
+}
+.ion-ios-pie-outline:before {
+  content: "\f483";
+}
+.ion-ios-pint:before {
+  content: "\f486";
+}
+.ion-ios-pint-outline:before {
+  content: "\f485";
+}
+.ion-ios-play:before {
+  content: "\f488";
+}
+.ion-ios-play-outline:before {
+  content: "\f487";
+}
+.ion-ios-plus:before {
+  content: "\f48b";
+}
+.ion-ios-plus-empty:before {
+  content: "\f489";
+}
+.ion-ios-plus-outline:before {
+  content: "\f48a";
+}
+.ion-ios-pricetag:before {
+  content: "\f48d";
+}
+.ion-ios-pricetag-outline:before {
+  content: "\f48c";
+}
+.ion-ios-pricetags:before {
+  content: "\f48f";
+}
+.ion-ios-pricetags-outline:before {
+  content: "\f48e";
+}
+.ion-ios-printer:before {
+  content: "\f491";
+}
+.ion-ios-printer-outline:before {
+  content: "\f490";
+}
+.ion-ios-pulse:before {
+  content: "\f493";
+}
+.ion-ios-pulse-strong:before {
+  content: "\f492";
+}
+.ion-ios-rainy:before {
+  content: "\f495";
+}
+.ion-ios-rainy-outline:before {
+  content: "\f494";
+}
+.ion-ios-recording:before {
+  content: "\f497";
+}
+.ion-ios-recording-outline:before {
+  content: "\f496";
+}
+.ion-ios-redo:before {
+  content: "\f499";
+}
+.ion-ios-redo-outline:before {
+  content: "\f498";
+}
+.ion-ios-refresh:before {
+  content: "\f49c";
+}
+.ion-ios-refresh-empty:before {
+  content: "\f49a";
+}
+.ion-ios-refresh-outline:before {
+  content: "\f49b";
+}
+.ion-ios-reload:before {
+  content: "\f49d";
+}
+.ion-ios-reverse-camera:before {
+  content: "\f49f";
+}
+.ion-ios-reverse-camera-outline:before {
+  content: "\f49e";
+}
+.ion-ios-rewind:before {
+  content: "\f4a1";
+}
+.ion-ios-rewind-outline:before {
+  content: "\f4a0";
+}
+.ion-ios-rose:before {
+  content: "\f4a3";
+}
+.ion-ios-rose-outline:before {
+  content: "\f4a2";
+}
+.ion-ios-search:before {
+  content: "\f4a5";
+}
+.ion-ios-search-strong:before {
+  content: "\f4a4";
+}
+.ion-ios-settings:before {
+  content: "\f4a7";
+}
+.ion-ios-settings-strong:before {
+  content: "\f4a6";
+}
+.ion-ios-shuffle:before {
+  content: "\f4a9";
+}
+.ion-ios-shuffle-strong:before {
+  content: "\f4a8";
+}
+.ion-ios-skipbackward:before {
+  content: "\f4ab";
+}
+.ion-ios-skipbackward-outline:before {
+  content: "\f4aa";
+}
+.ion-ios-skipforward:before {
+  content: "\f4ad";
+}
+.ion-ios-skipforward-outline:before {
+  content: "\f4ac";
+}
+.ion-ios-snowy:before {
+  content: "\f4ae";
+}
+.ion-ios-speedometer:before {
+  content: "\f4b0";
+}
+.ion-ios-speedometer-outline:before {
+  content: "\f4af";
+}
+.ion-ios-star:before {
+  content: "\f4b3";
+}
+.ion-ios-star-half:before {
+  content: "\f4b1";
+}
+.ion-ios-star-outline:before {
+  content: "\f4b2";
+}
+.ion-ios-stopwatch:before {
+  content: "\f4b5";
+}
+.ion-ios-stopwatch-outline:before {
+  content: "\f4b4";
+}
+.ion-ios-sunny:before {
+  content: "\f4b7";
+}
+.ion-ios-sunny-outline:before {
+  content: "\f4b6";
+}
+.ion-ios-telephone:before {
+  content: "\f4b9";
+}
+.ion-ios-telephone-outline:before {
+  content: "\f4b8";
+}
+.ion-ios-tennisball:before {
+  content: "\f4bb";
+}
+.ion-ios-tennisball-outline:before {
+  content: "\f4ba";
+}
+.ion-ios-thunderstorm:before {
+  content: "\f4bd";
+}
+.ion-ios-thunderstorm-outline:before {
+  content: "\f4bc";
+}
+.ion-ios-time:before {
+  content: "\f4bf";
+}
+.ion-ios-time-outline:before {
+  content: "\f4be";
+}
+.ion-ios-timer:before {
+  content: "\f4c1";
+}
+.ion-ios-timer-outline:before {
+  content: "\f4c0";
+}
+.ion-ios-toggle:before {
+  content: "\f4c3";
+}
+.ion-ios-toggle-outline:before {
+  content: "\f4c2";
+}
+.ion-ios-trash:before {
+  content: "\f4c5";
+}
+.ion-ios-trash-outline:before {
+  content: "\f4c4";
+}
+.ion-ios-undo:before {
+  content: "\f4c7";
+}
+.ion-ios-undo-outline:before {
+  content: "\f4c6";
+}
+.ion-ios-unlocked:before {
+  content: "\f4c9";
+}
+.ion-ios-unlocked-outline:before {
+  content: "\f4c8";
+}
+.ion-ios-upload:before {
+  content: "\f4cb";
+}
+.ion-ios-upload-outline:before {
+  content: "\f4ca";
+}
+.ion-ios-videocam:before {
+  content: "\f4cd";
+}
+.ion-ios-videocam-outline:before {
+  content: "\f4cc";
+}
+.ion-ios-volume-high:before {
+  content: "\f4ce";
+}
+.ion-ios-volume-low:before {
+  content: "\f4cf";
+}
+.ion-ios-wineglass:before {
+  content: "\f4d1";
+}
+.ion-ios-wineglass-outline:before {
+  content: "\f4d0";
+}
+.ion-ios-world:before {
+  content: "\f4d3";
+}
+.ion-ios-world-outline:before {
+  content: "\f4d2";
+}
+.ion-ipad:before {
+  content: "\f1f9";
+}
+.ion-iphone:before {
+  content: "\f1fa";
+}
+.ion-ipod:before {
+  content: "\f1fb";
+}
+.ion-jet:before {
+  content: "\f295";
+}
+.ion-key:before {
+  content: "\f296";
+}
+.ion-knife:before {
+  content: "\f297";
+}
+.ion-laptop:before {
+  content: "\f1fc";
+}
+.ion-leaf:before {
+  content: "\f1fd";
+}
+.ion-levels:before {
+  content: "\f298";
+}
+.ion-lightbulb:before {
+  content: "\f299";
+}
+.ion-link:before {
+  content: "\f1fe";
+}
+.ion-load-a:before {
+  content: "\f29a";
+}
+.ion-load-b:before {
+  content: "\f29b";
+}
+.ion-load-c:before {
+  content: "\f29c";
+}
+.ion-load-d:before {
+  content: "\f29d";
+}
+.ion-location:before {
+  content: "\f1ff";
+}
+.ion-lock-combination:before {
+  content: "\f4d4";
+}
+.ion-locked:before {
+  content: "\f200";
+}
+.ion-log-in:before {
+  content: "\f29e";
+}
+.ion-log-out:before {
+  content: "\f29f";
+}
+.ion-loop:before {
+  content: "\f201";
+}
+.ion-magnet:before {
+  content: "\f2a0";
+}
+.ion-male:before {
+  content: "\f2a1";
+}
+.ion-man:before {
+  content: "\f202";
+}
+.ion-map:before {
+  content: "\f203";
+}
+.ion-medkit:before {
+  content: "\f2a2";
+}
+.ion-merge:before {
+  content: "\f33f";
+}
+.ion-mic-a:before {
+  content: "\f204";
+}
+.ion-mic-b:before {
+  content: "\f205";
+}
+.ion-mic-c:before {
+  content: "\f206";
+}
+.ion-minus:before {
+  content: "\f209";
+}
+.ion-minus-circled:before {
+  content: "\f207";
+}
+.ion-minus-round:before {
+  content: "\f208";
+}
+.ion-model-s:before {
+  content: "\f2c1";
+}
+.ion-monitor:before {
+  content: "\f20a";
+}
+.ion-more:before {
+  content: "\f20b";
+}
+.ion-mouse:before {
+  content: "\f340";
+}
+.ion-music-note:before {
+  content: "\f20c";
+}
+.ion-navicon:before {
+  content: "\f20e";
+}
+.ion-navicon-round:before {
+  content: "\f20d";
+}
+.ion-navigate:before {
+  content: "\f2a3";
+}
+.ion-network:before {
+  content: "\f341";
+}
+.ion-no-smoking:before {
+  content: "\f2c2";
+}
+.ion-nuclear:before {
+  content: "\f2a4";
+}
+.ion-outlet:before {
+  content: "\f342";
+}
+.ion-paintbrush:before {
+  content: "\f4d5";
+}
+.ion-paintbucket:before {
+  content: "\f4d6";
+}
+.ion-paper-airplane:before {
+  content: "\f2c3";
+}
+.ion-paperclip:before {
+  content: "\f20f";
+}
+.ion-pause:before {
+  content: "\f210";
+}
+.ion-person:before {
+  content: "\f213";
+}
+.ion-person-add:before {
+  content: "\f211";
+}
+.ion-person-stalker:before {
+  content: "\f212";
+}
+.ion-pie-graph:before {
+  content: "\f2a5";
+}
+.ion-pin:before {
+  content: "\f2a6";
+}
+.ion-pinpoint:before {
+  content: "\f2a7";
+}
+.ion-pizza:before {
+  content: "\f2a8";
+}
+.ion-plane:before {
+  content: "\f214";
+}
+.ion-planet:before {
+  content: "\f343";
+}
+.ion-play:before {
+  content: "\f215";
+}
+.ion-playstation:before {
+  content: "\f30a";
+}
+.ion-plus:before {
+  content: "\f218";
+}
+.ion-plus-circled:before {
+  content: "\f216";
+}
+.ion-plus-round:before {
+  content: "\f217";
+}
+.ion-podium:before {
+  content: "\f344";
+}
+.ion-pound:before {
+  content: "\f219";
+}
+.ion-power:before {
+  content: "\f2a9";
+}
+.ion-pricetag:before {
+  content: "\f2aa";
+}
+.ion-pricetags:before {
+  content: "\f2ab";
+}
+.ion-printer:before {
+  content: "\f21a";
+}
+.ion-pull-request:before {
+  content: "\f345";
+}
+.ion-qr-scanner:before {
+  content: "\f346";
+}
+.ion-quote:before {
+  content: "\f347";
+}
+.ion-radio-waves:before {
+  content: "\f2ac";
+}
+.ion-record:before {
+  content: "\f21b";
+}
+.ion-refresh:before {
+  content: "\f21c";
+}
+.ion-reply:before {
+  content: "\f21e";
+}
+.ion-reply-all:before {
+  content: "\f21d";
+}
+.ion-ribbon-a:before {
+  content: "\f348";
+}
+.ion-ribbon-b:before {
+  content: "\f349";
+}
+.ion-sad:before {
+  content: "\f34a";
+}
+.ion-sad-outline:before {
+  content: "\f4d7";
+}
+.ion-scissors:before {
+  content: "\f34b";
+}
+.ion-search:before {
+  content: "\f21f";
+}
+.ion-settings:before {
+  content: "\f2ad";
+}
+.ion-share:before {
+  content: "\f220";
+}
+.ion-shuffle:before {
+  content: "\f221";
+}
+.ion-skip-backward:before {
+  content: "\f222";
+}
+.ion-skip-forward:before {
+  content: "\f223";
+}
+.ion-social-android:before {
+  content: "\f225";
+}
+.ion-social-android-outline:before {
+  content: "\f224";
+}
+.ion-social-angular:before {
+  content: "\f4d9";
+}
+.ion-social-angular-outline:before {
+  content: "\f4d8";
+}
+.ion-social-apple:before {
+  content: "\f227";
+}
+.ion-social-apple-outline:before {
+  content: "\f226";
+}
+.ion-social-bitcoin:before {
+  content: "\f2af";
+}
+.ion-social-bitcoin-outline:before {
+  content: "\f2ae";
+}
+.ion-social-buffer:before {
+  content: "\f229";
+}
+.ion-social-buffer-outline:before {
+  content: "\f228";
+}
+.ion-social-chrome:before {
+  content: "\f4db";
+}
+.ion-social-chrome-outline:before {
+  content: "\f4da";
+}
+.ion-social-codepen:before {
+  content: "\f4dd";
+}
+.ion-social-codepen-outline:before {
+  content: "\f4dc";
+}
+.ion-social-css3:before {
+  content: "\f4df";
+}
+.ion-social-css3-outline:before {
+  content: "\f4de";
+}
+.ion-social-designernews:before {
+  content: "\f22b";
+}
+.ion-social-designernews-outline:before {
+  content: "\f22a";
+}
+.ion-social-dribbble:before {
+  content: "\f22d";
+}
+.ion-social-dribbble-outline:before {
+  content: "\f22c";
+}
+.ion-social-dropbox:before {
+  content: "\f22f";
+}
+.ion-social-dropbox-outline:before {
+  content: "\f22e";
+}
+.ion-social-euro:before {
+  content: "\f4e1";
+}
+.ion-social-euro-outline:before {
+  content: "\f4e0";
+}
+.ion-social-facebook:before {
+  content: "\f231";
+}
+.ion-social-facebook-outline:before {
+  content: "\f230";
+}
+.ion-social-foursquare:before {
+  content: "\f34d";
+}
+.ion-social-foursquare-outline:before {
+  content: "\f34c";
+}
+.ion-social-freebsd-devil:before {
+  content: "\f2c4";
+}
+.ion-social-github:before {
+  content: "\f233";
+}
+.ion-social-github-outline:before {
+  content: "\f232";
+}
+.ion-social-google:before {
+  content: "\f34f";
+}
+.ion-social-google-outline:before {
+  content: "\f34e";
+}
+.ion-social-googleplus:before {
+  content: "\f235";
+}
+.ion-social-googleplus-outline:before {
+  content: "\f234";
+}
+.ion-social-hackernews:before {
+  content: "\f237";
+}
+.ion-social-hackernews-outline:before {
+  content: "\f236";
+}
+.ion-social-html5:before {
+  content: "\f4e3";
+}
+.ion-social-html5-outline:before {
+  content: "\f4e2";
+}
+.ion-social-instagram:before {
+  content: "\f351";
+}
+.ion-social-instagram-outline:before {
+  content: "\f350";
+}
+.ion-social-javascript:before {
+  content: "\f4e5";
+}
+.ion-social-javascript-outline:before {
+  content: "\f4e4";
+}
+.ion-social-linkedin:before {
+  content: "\f239";
+}
+.ion-social-linkedin-outline:before {
+  content: "\f238";
+}
+.ion-social-markdown:before {
+  content: "\f4e6";
+}
+.ion-social-nodejs:before {
+  content: "\f4e7";
+}
+.ion-social-octocat:before {
+  content: "\f4e8";
+}
+.ion-social-pinterest:before {
+  content: "\f2b1";
+}
+.ion-social-pinterest-outline:before {
+  content: "\f2b0";
+}
+.ion-social-python:before {
+  content: "\f4e9";
+}
+.ion-social-reddit:before {
+  content: "\f23b";
+}
+.ion-social-reddit-outline:before {
+  content: "\f23a";
+}
+.ion-social-rss:before {
+  content: "\f23d";
+}
+.ion-social-rss-outline:before {
+  content: "\f23c";
+}
+.ion-social-sass:before {
+  content: "\f4ea";
+}
+.ion-social-skype:before {
+  content: "\f23f";
+}
+.ion-social-skype-outline:before {
+  content: "\f23e";
+}
+.ion-social-snapchat:before {
+  content: "\f4ec";
+}
+.ion-social-snapchat-outline:before {
+  content: "\f4eb";
+}
+.ion-social-tumblr:before {
+  content: "\f241";
+}
+.ion-social-tumblr-outline:before {
+  content: "\f240";
+}
+.ion-social-tux:before {
+  content: "\f2c5";
+}
+.ion-social-twitch:before {
+  content: "\f4ee";
+}
+.ion-social-twitch-outline:before {
+  content: "\f4ed";
+}
+.ion-social-twitter:before {
+  content: "\f243";
+}
+.ion-social-twitter-outline:before {
+  content: "\f242";
+}
+.ion-social-usd:before {
+  content: "\f353";
+}
+.ion-social-usd-outline:before {
+  content: "\f352";
+}
+.ion-social-vimeo:before {
+  content: "\f245";
+}
+.ion-social-vimeo-outline:before {
+  content: "\f244";
+}
+.ion-social-whatsapp:before {
+  content: "\f4f0";
+}
+.ion-social-whatsapp-outline:before {
+  content: "\f4ef";
+}
+.ion-social-windows:before {
+  content: "\f247";
+}
+.ion-social-windows-outline:before {
+  content: "\f246";
+}
+.ion-social-wordpress:before {
+  content: "\f249";
+}
+.ion-social-wordpress-outline:before {
+  content: "\f248";
+}
+.ion-social-yahoo:before {
+  content: "\f24b";
+}
+.ion-social-yahoo-outline:before {
+  content: "\f24a";
+}
+.ion-social-yen:before {
+  content: "\f4f2";
+}
+.ion-social-yen-outline:before {
+  content: "\f4f1";
+}
+.ion-social-youtube:before {
+  content: "\f24d";
+}
+.ion-social-youtube-outline:before {
+  content: "\f24c";
+}
+.ion-soup-can:before {
+  content: "\f4f4";
+}
+.ion-soup-can-outline:before {
+  content: "\f4f3";
+}
+.ion-speakerphone:before {
+  content: "\f2b2";
+}
+.ion-speedometer:before {
+  content: "\f2b3";
+}
+.ion-spoon:before {
+  content: "\f2b4";
+}
+.ion-star:before {
+  content: "\f24e";
+}
+.ion-stats-bars:before {
+  content: "\f2b5";
+}
+.ion-steam:before {
+  content: "\f30b";
+}
+.ion-stop:before {
+  content: "\f24f";
+}
+.ion-thermometer:before {
+  content: "\f2b6";
+}
+.ion-thumbsdown:before {
+  content: "\f250";
+}
+.ion-thumbsup:before {
+  content: "\f251";
+}
+.ion-toggle:before {
+  content: "\f355";
+}
+.ion-toggle-filled:before {
+  content: "\f354";
+}
+.ion-transgender:before {
+  content: "\f4f5";
+}
+.ion-trash-a:before {
+  content: "\f252";
+}
+.ion-trash-b:before {
+  content: "\f253";
+}
+.ion-trophy:before {
+  content: "\f356";
+}
+.ion-tshirt:before {
+  content: "\f4f7";
+}
+.ion-tshirt-outline:before {
+  content: "\f4f6";
+}
+.ion-umbrella:before {
+  content: "\f2b7";
+}
+.ion-university:before {
+  content: "\f357";
+}
+.ion-unlocked:before {
+  content: "\f254";
+}
+.ion-upload:before {
+  content: "\f255";
+}
+.ion-usb:before {
+  content: "\f2b8";
+}
+.ion-videocamera:before {
+  content: "\f256";
+}
+.ion-volume-high:before {
+  content: "\f257";
+}
+.ion-volume-low:before {
+  content: "\f258";
+}
+.ion-volume-medium:before {
+  content: "\f259";
+}
+.ion-volume-mute:before {
+  content: "\f25a";
+}
+.ion-wand:before {
+  content: "\f358";
+}
+.ion-waterdrop:before {
+  content: "\f25b";
+}
+.ion-wifi:before {
+  content: "\f25c";
+}
+.ion-wineglass:before {
+  content: "\f2b9";
+}
+.ion-woman:before {
+  content: "\f25d";
+}
+.ion-wrench:before {
+  content: "\f2ba";
+}
+.ion-xbox:before {
+  content: "\f30c";
+}
+
+
+/*# sourceMappingURL=style.css.map */

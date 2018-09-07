@@ -5,6 +5,14 @@
   },
   "mail": {
     "name": "mail",
-    "connector": "mail"
+    "connector": "mail",
+    "transports": [ {
+           "service": "gmail",
+           "auth": {
+               "user": "",
+               "pass": ""
+           }
+       }
+    ]
   }
 }

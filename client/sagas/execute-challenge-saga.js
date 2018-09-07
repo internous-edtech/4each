@@ -80,6 +80,7 @@ function cacheLink({ link } = {}, crossDomain = true) {
 
 const htmlCatch = '\n<!--fcc-->';
 const jsCatch = '\n;/*fcc*/\n';
+const cssCatch = '\n/*fcc*/\n';
 
 export default function executeChallengeSaga(action$, getState) {
   const frameRunner$ = cacheScript(
@@ -99,6 +100,11 @@ export default function executeChallengeSaga(action$, getState) {
       const { files } = state.challengesApp;
       const { challenge: { required = [] } } = challengeSelector(state);
       const finalRequires = [...globalRequires, ...required ];
+      const code = Object.keys(files).map((key) => {
+          return files[key].contents;
+        })[0];
+      const challengeType = challengeSelector(state).challenge.challengeType;
+
       return createFileStream(files)
         ::throwers()
         ::transformers()
@@ -117,19 +123,23 @@ export default function executeChallengeSaga(action$, getState) {
             ));
           } else if (file.ext === 'css') {
             finalFile = setExt('html', updateContents(
-              `<style>${finalContents.join(htmlCatch)}</style>`,
+              `<style>${finalContents.join(cssCatch)}</style>`,
               file
             ));
           } else {
             finalFile = file;
           }
-          return build + finalFile.contents + htmlCatch;
+          if(file.ext == "server" || file.ext == "sql"){
+              return build + finalFile.contents;
+          } else {
+              return build + finalFile.contents + htmlCatch;
+          }
         }, ''))
         // add required scripts and links here
         .flatMap(source => {
           const head$ = Observable.from(finalRequires)
             .flatMap(required => {
-              if (required.src) {
+              if (required.src) { //jQuery など読み込み
                 return cacheScript(required, required.crossDomain);
               }
               // css files with `url(...` may not work in style tags
@@ -163,6 +173,10 @@ export default function executeChallengeSaga(action$, getState) {
             });
         })
         .flatMap(payload => {
+            // 写経のjsxで練習問題を実行する関係でコメントアウト
+            // if(challengeType == 9){
+            //     payload.source = code;
+            // }
           const actions = [
             frameMain(payload)
           ];
@@ -173,7 +187,7 @@ export default function executeChallengeSaga(action$, getState) {
         })
         .startWith((
           type === types.executeChallenge ?
-            initOutput('// running test') :
+            initOutput('---プログラム実行中---') :
             null
         ))
         .catch(createErrorObservable);

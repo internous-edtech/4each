@@ -26,6 +26,8 @@ const publicUserProps = [
   'sendNotificationEmail',
   'sendQuincyEmail',
 
+  'milestone', // 完了目標日数
+
   'currentChallengeId',
   'challengeMap'
 ];

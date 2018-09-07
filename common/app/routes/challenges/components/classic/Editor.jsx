@@ -7,6 +7,8 @@ import Codemirror from 'react-codemirror';
 import NoSSR from 'react-no-ssr';
 import PureComponent from 'react-pure-render/component';
 
+import CodeMirrorSkeleton from '../skeleton/CodeMirrorSkeleton.jsx';
+
 const mapStateToProps = createSelector(
   state => state.app.windowHeight,
   state => state.app.navHeight,
@@ -89,14 +91,14 @@ export class Editor extends PureComponent {
   );
 
   componentDidMount() {
-    const { updateFile = (() => {}) } = this.props;
-    this._subscription = this._editorContent$
+      const { updateFile = (() => {}) } = this.props;
+      this._subscription = this._editorContent$
       .debounce(editorDebounceTimeout)
-      .distinctUntilChanged()
-      .subscribe(
-        updateFile,
-        err => { throw err; }
-      );
+        .distinctUntilChanged()
+        .subscribe(
+          updateFile,
+          err => { throw err; }
+        );
   }
 
   componentWillUnmount() {
@@ -107,6 +109,18 @@ export class Editor extends PureComponent {
   }
 
   handleChange(value) {
+
+    if(value.replace(/^\s+|\s+$/mg, '') === ""){
+        switch(this.props.mode){
+            case 'application/x-httpd-php' :
+            value = '<?php\n';
+            break;
+            case 'text/x-python' :
+            value = 'from __future__ import print_function\n';
+            break;
+        }
+    }
+
     if (this._subscription) {
       this._editorContent$.onNext(value);
     }
@@ -123,7 +137,7 @@ export class Editor extends PureComponent {
         className='challenges-editor'
         style={ style }
         >
-        <NoSSR>
+        <NoSSR onSSR={ <CodeMirrorSkeleton content={ content } /> }>
           <Codemirror
             onChange={ this.handleChange }
             options={ this.createOptions({ executeChallenge, mode, options }) }

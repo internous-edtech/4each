@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS example (
+    id INT(11) NOT NULL auto_increment PRIMARY KEY,
+    message TEXT
+) DEFAULT CHARSET=utf8;
+INSERT IGNORE INTO `example` VALUES ( 1, 'TEST1');
+INSERT IGNORE INTO `example` VALUES ( 2, 'TEST2');

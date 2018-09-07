@@ -1,5 +1,5 @@
 import { ifNoUser401 } from '../utils/middleware';
-import { isMongoId } from 'validator';
+import { isMongoId, isEmail, isInt } from 'validator';
 import supportedLanguages from '../../common/utils/supported-languages.js';
 
 export default function settingsController(app) {
@@ -49,6 +49,43 @@ export default function settingsController(app) {
         next
       );
   }
+
+  function updateMyAccount(req, res, next) {
+    const { user, body: { newUserProfile } = {} } = req;
+    let { name, email, milestone } = newUserProfile;
+    let update = {}
+
+    if (!isEmail(email)) {
+      return res.json({
+        message: `that is not a valid email`
+      });
+    }
+
+    if (milestone !== "" && milestone != null) {
+        // FIXME
+        // This library (validator.js) validates strings only
+        if (!isInt("" + milestone)) {
+          return res.json({
+            message: `that is not a valid milestone`
+          });
+        }
+    } else {
+        milestone = 60
+    }
+
+    name ? update.name = name : "";
+    email ? update.email = email : "";
+    milestone ? update.milestone = milestone : "";
+
+    return user.update$(update)
+      .subscribe(
+        () => res.json({
+          message: `Your Account has been updated`
+        }),
+        next
+      );
+  }
+
 
   function updateMyCurrentChallenge(req, res, next) {
     const { user, body: { currentChallengeId } } = req;
@@ -110,6 +147,12 @@ export default function settingsController(app) {
     '/update-my-lang',
     ifNoUser401,
     updateMyLang
+  );
+
+  api.post(
+    '/update-my-account',
+    ifNoUser401,
+    updateMyAccount
   );
 
   api.post(

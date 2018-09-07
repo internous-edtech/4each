@@ -1,6 +1,7 @@
 import { Observable } from 'rx';
 import { createAction } from 'redux-actions';
 import types from './types';
+import noop from 'lodash/noop';
 
 const throwIfUndefined = () => {
   throw new TypeError('Argument must not be of  type `undefined`');
@@ -92,8 +93,15 @@ export const updateUserEmail = createAction(
 // updateUserLang(username: String, lang: String) => Action
 export const updateUserLang = createAction(
   types.updateUserLang,
-  (username, lang) => ({ username, lang })
+  (username, lang) => ({ username, languageTag: lang })
 );
+
+// updateUserAccount(username: String, newUserProfile: Object) => Action
+export const updateUserAccount = createAction(
+  types.updateUserAccount,
+  (username, newUserProfile) => ({ username, newUserProfile })
+);
+
 
 // updateUserChallenge(
 //   username: String,
@@ -136,63 +144,6 @@ export const doActionOnError = actionCreator => error => Observable.of(
   actionCreator()
 );
 
-
-// drawers
-export const toggleMapDrawer = createAction(
-  types.toggleMapDrawer,
-  null,
-  () => createEventMeta({
-    category: 'Nav',
-    action: 'toggled',
-    label: 'Map drawer toggled'
-  })
-);
-export const closeMapDrawer = createAction(
-  types.closeMapDrawer,
-  null,
-  () => createEventMeta({
-    category: 'Nav',
-    action: 'clicked',
-    label: 'Map drawer closed'
-  })
-);
-export const toggleMainChat = createAction(
-  types.toggleMainChat,
-  null,
-  () => createEventMeta({
-    category: 'Nav',
-    action: 'toggled',
-    label: 'Main chat toggled'
-  })
-);
-export const toggleHelpChat = createAction(
-  types.toggleHelpChat,
-  null,
-  () => createEventMeta({
-    category: 'Challenge',
-    action: 'toggled',
-    label: 'help chat toggled'
-  })
-);
-export const openHelpChat = createAction(
-  types.openHelpChat,
-  null,
-  () => createEventMeta({
-    category: 'Challenge',
-    action: 'opened',
-    label: 'help chat opened'
-  })
-);
-export const closeHelpChat = createAction(
-  types.closeHelpChat,
-  null,
-  () => createEventMeta({
-    category: 'Challenge',
-    action: 'closed',
-    label: 'help chat closed'
-  })
-);
-
 export const toggleNightMode = createAction(
   types.toggleNightMode,
   // we use this function to avoid hanging onto the eventObject
@@ -203,3 +154,6 @@ export const toggleNightMode = createAction(
 export const updateTheme = createAction(types.updateTheme);
 // addThemeToBody(theme: /night|default/) => Action
 export const addThemeToBody = createAction(types.addThemeToBody);
+
+export const openDropdown = createAction(types.openDropdown, noop);
+export const closeDropdown = createAction(types.closeDropdown, noop);

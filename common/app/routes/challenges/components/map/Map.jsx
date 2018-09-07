@@ -11,15 +11,21 @@ import SuperBlock from './Super-Block.jsx';
 import { fetchChallenges } from '../../redux/actions';
 import { updateTitle } from '../../../../redux/actions';
 
+import Footer from '../Footer.jsx';
+import LessonsList from './LessonsList.jsx';
+
 const bindableActions = { fetchChallenges, updateTitle };
 const mapStateToProps = createSelector(
   state => state.app.windowHeight,
   state => state.app.navHeight,
   state => state.challengesApp.superBlocks,
-  (windowHeight, navHeight, superBlocks) => ({
+  state => state.entities,
+  state => state.challengesApp,
+  (windowHeight, navHeight, superBlocks, entities) => ({
     superBlocks,
+    entities,
     height: windowHeight - navHeight - 150
-  })
+  }),
 );
 const fetchOptions = {
   fetchAction: 'fetchChallenges',
@@ -30,6 +36,7 @@ const fetchOptions = {
 export class ShowMap extends PureComponent {
   static displayName = 'Map';
   static propTypes = {
+    entities: PropTypes.object,
     superBlocks: PropTypes.array,
     height: PropTypes.number,
     updateTitle: PropTypes.func.isRequired,
@@ -61,22 +68,25 @@ export class ShowMap extends PureComponent {
   }
 
   render() {
-    const { superBlocks } = this.props;
+    const { entities } = this.props;
+
     let height = 'auto';
     if (!this.props.params) {
       height = this.props.height + 'px';
     }
+    let superBlocks = Object.keys(entities.superBlock).map(function (key) {
+      return entities.superBlock[key].dashedName;
+    });
+
     return (
-      <Col xs={ 12 }>
-        <MapHeader />
-        <div
-          className='map-accordion center-block'
-          style={{ height: height }}
-          >
-          { this.renderSuperBlocks(superBlocks) }
-          <div className='spacer' />
+      <div>
+          <MapHeader></MapHeader>
+              <div className={ `map-accordion center-block` }>
+              { this.renderSuperBlocks(superBlocks) }
+              <div className='spacer' />
+            </div>
+          <Footer />
         </div>
-      </Col>
     );
   }
 }

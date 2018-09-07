@@ -27,7 +27,7 @@ function langRedirect(...args) {
   }
 
   // default to english
-  return this._oldRedirect(`/en${url}`);
+  return this._oldRedirect(`/ja{url}`);
 }
 
 // prefer url lang over user lang
@@ -45,7 +45,7 @@ export default function addLang() {
     } else if (supportedLanguages[userLang]) {
       finalLang = userLang;
     } else {
-      finalLang = 'en';
+      finalLang = 'ja';
     }
     // found url lang tag that is not yet supported
     // redirect to fix url with supported lang tag

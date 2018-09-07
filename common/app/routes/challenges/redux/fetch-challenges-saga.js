@@ -11,7 +11,8 @@ import {
 } from './actions';
 import {
   createMapUi,
-  filterComingSoonBetaFromEntities
+  filterComingSoonBetaFromEntities,
+  searchableChallengeTitles
 } from '../utils';
 import {
   delayedRedirect,
@@ -56,6 +57,14 @@ export default function fetchChallengesSaga(action$, getState, { services }) {
         .retry(3)
         .flatMap(({ entities, result, redirect } = {}) => {
           if (type === fetchChallenge) {
+
+            // TODO
+            // 無理やり
+            // /common/app/routes/challenges/redux/fetch-challenges-saga.js
+            if(result.challenge == null) {
+                window.location.href="/ja/lessons/" + block.split('-')[0]
+                return Observable.of(null)
+            }
             return Observable.of(
               fetchChallengeCompleted(
                 createNameIdMap(entities),
@@ -69,12 +78,18 @@ export default function fetchChallengesSaga(action$, getState, { services }) {
             entities,
             isDev
           );
+          const searchNames = searchableChallengeTitles(filteredEntities);
           return Observable.of(
             fetchChallengesCompleted(
               createNameIdMap(filteredEntities),
               result
             ),
-            initMap(createMapUi(filteredEntities, result)),
+            initMap(
+              createMapUi(
+                filteredEntities,
+                result,
+                searchNames
+              )),
           );
         })
         .catch(createErrorObservable);

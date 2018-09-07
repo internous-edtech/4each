@@ -1,0 +1,18 @@
+extends ../layout
+block content
+    .row
+      .login-area.card.col-sm-8.col-sm-offset-2
+        .card-header お問合せ
+        form.card-form(method="POST")
+          input(type='hidden', name='_csrf', value=_csrf)
+          .form-group
+            input.form-control(type="text", placeholder="氏名", value="", name='name', id='name', autofocus=true)
+          .form-group
+            input.form-control(type="email", placeholder="メールアドレス", value="", name='email', id='email')
+          .form-group
+            input.form-control(type="tel", placeholder="電話番号", value="", name="tel", id="tel")
+          .form-group
+            textarea.form-control(placeholder="お問合せ内容", value="", rows="8", name='message', id='message')
+          .space-10
+          input.small(type="submit", value="送信")
+          .space-10

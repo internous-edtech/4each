@@ -1,0 +1,31 @@
+{
+  "name": "forReportLogin",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userid": {
+      "type": "string",
+      "required": true
+    },
+    "logindate": {
+      "type": "object",
+      "required": true
+    },
+    "challengeId": {
+      "type": "string",
+      "required": false
+    },
+    "challengePercent": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": {}
+}

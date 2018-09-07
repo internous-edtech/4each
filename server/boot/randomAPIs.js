@@ -41,6 +41,8 @@ module.exports = function(app) {
   );
   router.get('/code-of-conduct', codeOfConduct);
   router.get('/academic-honesty', academicHonesty);
+  router.get('/contact', contact);
+  router.get('/help', help);
 
   app.use(noLangRouter);
   app.use('/:lang', router);
@@ -84,6 +86,19 @@ module.exports = function(app) {
           title: 'Academic Honesty policy'
       });
   }
+
+  function contact(req, res) {
+      res.render('resources/contact', {
+          title: 'Contact'
+      });
+  }
+
+  function help(req, res) {
+      res.render('resources/help', {
+          title: 'Help'
+      });
+  }
+
 
   function theFastestWebPageOnTheInternet(req, res) {
     res.render('resources/the-fastest-web-page-on-the-internet', {

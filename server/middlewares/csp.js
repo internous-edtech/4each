@@ -34,7 +34,8 @@ export default function csp() {
         'https://*.twimg.com',
         '*.youtube.com',
         '*.ytimg.com',
-        'https://*.optimizely.com'
+        'https://*.optimizely.com',
+        '*.vimeo.com'
       ].concat(trusted),
       styleSrc: [
         "'unsafe-inline'",
@@ -71,6 +72,7 @@ export default function csp() {
         '*.gitter.im https:',
         '*.youtube.com',
         '*.twitter.com',
+        '*.cloudfront.net',
         '*.ghbtns.com',
         '*.freecatphotoapp.com',
         'freecodecamp.github.io'

@@ -10,6 +10,7 @@ window.common = (function(global) {
   if (
     !CodeMirror ||
     challengeType !== challengeTypes.JS &&
+    challengeType !== challengeTypes.SERVER &&
     challengeType !== challengeTypes.BONFIRE
   ) {
     common.updateOutputDisplay = () => {};
@@ -28,13 +29,7 @@ window.common = (function(global) {
     }
   );
 
-  codeOutput.setValue(`/**
-  * Your output will go here.
-  * Any console.log() - type
-  * statements will appear in
-  * your browser\'s DevTools
-  * JavaScript console as well.
-  */`);
+  codeOutput.setValue(`プログラム実行結果出力欄`);
 
   codeOutput.setSize('100%', '100%');
 

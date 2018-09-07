@@ -84,4 +84,17 @@ export default function about(app) {
 
   router.get('/about', showAbout);
   app.use('/:lang', router);
+  var sessionCheck = function(req, res, next) {
+    if (req.user) {
+      return next();
+    } else {
+        // ログインが不要なページ
+        if( req.path.match(/(signup|signout|email-signin|contact|help|\/api\/users\/login|\/api\/users)$/) ){
+            return next();
+        } else {
+            return res.redirect('/email-signin');
+        }
+    }
+  };
+  app.use('/', sessionCheck, router);
 }

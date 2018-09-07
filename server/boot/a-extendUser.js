@@ -86,16 +86,16 @@ module.exports = function(app) {
         'emails',
         'a-extend-user-welcome.ejs'
       ),
-      redirect: '/email-signin'
+      redirect: '/ja/email-signin'
     };
 
     debug('sending welcome email');
     return user.verify(mailOptions, function(err) {
       if (err) { return next(err); }
       req.flash('success', {
-        msg: [ 'Congratulations ! We\'ve created your account. ',
-               'Please check your email. We sent you a link that you can ',
-               'click to verify your email address and then login.'
+        msg: [ 'ご登録有難うございます。<br>',
+               'ご登録頂いたメールアドレスに確認メールを送信しました。<br>',
+               'メール内にあるリンクをクリックして本登録をして下さい。'
              ].join('')
       });
       return res.redirect(redirect);

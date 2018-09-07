@@ -16,13 +16,15 @@ const dispatchActions = { toggleThisPanel };
 const makeMapStateToProps = () => createSelector(
   (_, props) => props.dashedName,
   (state, props) => state.entities.block[props.dashedName],
+  state => state.entities,
   makePanelOpenSelector(),
   makePanelHiddenSelector(),
-  (dashedName, block, isOpen, isHidden) => {
+  (dashedName, block, entities, isOpen, isHidden) => {
     return {
       isOpen,
       isHidden,
       dashedName,
+      entities: entities,
       title: block.title,
       time: block.time,
       challenges: block.challenges
@@ -36,6 +38,7 @@ export class Block extends PureComponent {
   }
   static displayName = 'Block';
   static propTypes = {
+    entities: PropTypes.object,
     title: PropTypes.string,
     dashedName: PropTypes.string,
     time: PropTypes.string,
@@ -61,7 +64,7 @@ export class Block extends PureComponent {
           <span>
             { title }
           </span>
-          <span className='challenge-block-time'>({ time })</span>
+          {/* <span className='challenge-block-time'>({ time })</span> */}
         </h3>
       </div>
     );
@@ -81,6 +84,7 @@ export class Block extends PureComponent {
 
   render() {
     const {
+      entities,
       title,
       time,
       dashedName,
@@ -91,13 +95,19 @@ export class Block extends PureComponent {
     if (isHidden) {
       return null;
     }
+
+    let header_title = "";
+    if(challenges){
+        header_title = entities.challenge[challenges[0]].description[0];
+    }
+
     return (
       <Panel
         bsClass='map-accordion-panel-nested'
         collapsible={ true }
         eventKey={ dashedName || title }
         expanded={ isOpen }
-        header={ this.renderHeader(isOpen, title, time) }
+        header={ this.renderHeader(isOpen, header_title, time) }
         id={ title }
         key={ title }
         onSelect={ this.handleSelect }

@@ -10,6 +10,7 @@ import {
   checkMapData,
   getFirstChallenge
 } from '../../common/utils/get-first-challenge';
+import execute from '../utils/execute';
 
 const log = debug('fcc:boot:challenges');
 
@@ -110,6 +111,13 @@ export default function(app) {
     projectCompleted
   );
 
+  api.post(
+    '/challenge-execute',
+    //function(){},
+    // send200toNonUser,
+    challengeExecute
+  );
+
   router.get(
     '/challenges/current-challenge',
     redirectToCurrentChallenge
@@ -118,6 +126,32 @@ export default function(app) {
   app.use(api);
   app.use('/:lang', router);
 
+  function challengeExecute(req, res, next) {
+      const user = req.user;
+
+      const body = req.body;
+      const userId = user ? user.username : '';
+      const challengeId = body.challengeId;
+      const challengeName = body.challengeName;
+      const language = body.language;
+      const code = body.code;
+      const javaClass = body.javaClass;
+
+      return execute({
+          userId,
+          language,
+          challengeId,
+          code,
+          javaClass,
+          challengeName,
+      },function(output){
+          console.log("output");
+          return res.json({
+            output
+          });
+      })
+      .subscribe(() => {}, next);
+  }
   function modernChallengeCompleted(req, res, next) {
     const type = accepts(req).type('html', 'json', 'text');
     req.checkBody('id', 'id must be an ObjectId').isMongoId();

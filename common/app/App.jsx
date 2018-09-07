@@ -3,16 +3,15 @@ import { Button, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import MapDrawer from './components/Map-Drawer.jsx';
 import {
   fetchUser,
   initWindowHeight,
   updateNavHeight,
-  toggleMapDrawer,
-  toggleMainChat,
   updateAppLang,
   trackEvent,
-  loadCurrentChallenge
+  loadCurrentChallenge,
+  openDropdown,
+  closeDropdown
 } from './redux/actions';
 
 import { submitChallenge } from './routes/challenges/redux/actions';
@@ -26,41 +25,47 @@ const mapDispatchToProps = {
   updateNavHeight,
   fetchUser,
   submitChallenge,
-  toggleMapDrawer,
-  toggleMainChat,
   updateAppLang,
   trackEvent,
-  loadCurrentChallenge
+  loadCurrentChallenge,
+  openDropdown,
+  closeDropdown
 };
 
 const mapStateToProps = createSelector(
   userSelector,
+  state => state.app.isNavDropdownOpen,
   state => state.app.isSignInAttempted,
   state => state.app.toast,
-  state => state.app.isMapDrawerOpen,
-  state => state.app.isMapAlreadyLoaded,
   state => state.challengesApp.toast,
+  state => state.entities,
+  state => state.challengesApp,
   (
-    { user: { username, points, picture } },
+    { user: { username, points, picture, name } },
+    isNavDropdownOpen,
     isSignInAttempted,
     toast,
-    isMapDrawerOpen,
-    isMapAlreadyLoaded,
+    entities,
+    challengesApp
   ) => ({
+    name,
     username,
     points,
     picture,
     toast,
+    entities,
+    challengesApp,
+    isNavDropdownOpen,
     showLoading: !isSignInAttempted,
-    isMapDrawerOpen,
-    isMapAlreadyLoaded,
     isSignedIn: !!username
   })
 );
 
 const propTypes = {
   children: PropTypes.node,
+  name: PropTypes.string,
   username: PropTypes.string,
+  challengesApp: PropTypes.object,
   isSignedIn: PropTypes.bool,
   points: PropTypes.number,
   picture: PropTypes.string,
@@ -68,18 +73,16 @@ const propTypes = {
   updateNavHeight: PropTypes.func,
   initWindowHeight: PropTypes.func,
   submitChallenge: PropTypes.func,
-  isMapDrawerOpen: PropTypes.bool,
-  isMapAlreadyLoaded: PropTypes.bool,
-  toggleMapDrawer: PropTypes.func,
-  toggleMainChat: PropTypes.func,
   fetchUser: PropTypes.func,
   showLoading: PropTypes.bool,
   params: PropTypes.object,
   updateAppLang: PropTypes.func.isRequired,
   trackEvent: PropTypes.func.isRequired,
-  loadCurrentChallenge: PropTypes.func.isRequired
+  loadCurrentChallenge: PropTypes.func.isRequired,
+  openDropdown: PropTypes.func.isRequired,
+  closeDropdown: PropTypes.func.isRequired,
+  isNavDropdownOpen: PropTypes.bool
 };
-const contextTypes = { router: PropTypes.object };
 
 // export plain class for testing
 export class FreeCodeCamp extends React.Component {
@@ -112,45 +115,41 @@ export class FreeCodeCamp extends React.Component {
   }
 
   render() {
-    const { router } = this.context;
     const {
+      name,
       username,
       points,
       picture,
       updateNavHeight,
-      isMapDrawerOpen,
-      isMapAlreadyLoaded,
-      toggleMapDrawer,
-      toggleMainChat,
-      showLoading,
-      params: { lang },
       trackEvent,
-      loadCurrentChallenge
+      loadCurrentChallenge,
+      openDropdown,
+      closeDropdown,
+      isNavDropdownOpen,
+      params,
+      challengesApp,
     } = this.props;
     const navProps = {
-      isOnMap: router.isActive(`/${lang}/map`),
+      name,
       username,
+      challengesApp,
       points,
       picture,
       updateNavHeight,
-      toggleMapDrawer,
-      toggleMainChat,
-      showLoading,
       trackEvent,
-      loadCurrentChallenge
+      loadCurrentChallenge,
+      openDropdown,
+      closeDropdown,
+      isNavDropdownOpen,
+      params
     };
 
     return (
       <div>
         <Nav { ...navProps }/>
-        <Row>
+        <div>
           { this.props.children }
-        </Row>
-        <MapDrawer
-          isAlreadyLoaded={ isMapAlreadyLoaded }
-          isOpen={ isMapDrawerOpen }
-          toggleMapDrawer={ toggleMapDrawer }
-        />
+        </div>
         <Toasts />
       </div>
     );
@@ -158,7 +157,6 @@ export class FreeCodeCamp extends React.Component {
 }
 
 FreeCodeCamp.displayName = 'FreeCodeCamp';
-FreeCodeCamp.contextTypes = contextTypes;
 FreeCodeCamp.propTypes = propTypes;
 
 export default connect(

@@ -74,5 +74,9 @@
   "block": {
     "dataSource": "db",
     "public": true
+  },
+  "forReportLogin": {
+    "dataSource": "db",
+    "public": true
   }
 }

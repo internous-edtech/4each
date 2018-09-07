@@ -81,13 +81,23 @@ export class SuperBlock extends PureComponent {
   }
 
   renderHeader(isOpen, title, isCompleted) {
+      /* ハードコーディング(コースタイトル) */
+      let titles = {
+          "html" : "HTML",
+          "css" : "CSS",
+          "js" : "JS",
+          "php" : "PHP",
+          "mysql" : "XAMPPとMySQL",
+          "jquery" : "jQuery",
+          "java" : "Java",
+      };
     return (
       <h2 className={ isCompleted ? 'faded' : '' }>
         <FA
           className='no-link-underline'
           name={ isOpen ? 'caret-down' : 'caret-right' }
         />
-        { title }
+        { titles[title.toLowerCase()] }
       </h2>
     );
   }

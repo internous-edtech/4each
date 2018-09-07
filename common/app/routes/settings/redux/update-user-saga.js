@@ -4,10 +4,13 @@ import { push } from 'react-router-redux';
 import { types } from './actions';
 import { makeToast } from '../../../toasts/redux/actions';
 import { fetchChallenges } from '../../challenges/redux/actions';
+import { fetchUser } from '../../../redux/actions';
+
 import {
   updateUserFlag,
   updateUserEmail,
   updateUserLang,
+  updateUserAccount,
   doActionOnError
 } from '../../../redux/actions';
 import { userSelector } from '../../../redux/selectors';
@@ -114,8 +117,49 @@ export function updateUserFlagSaga(actions$, getState) {
   return Observable.merge(optimistic$, serverUpdate$);
 }
 
+export function updateUserAccountSaga(actions$, getState) {
+    const updateAcoount$ = actions$
+      .filter(({ type, payload }) => (
+        type === types.updateMyAccount
+      ))
+      .map(({ payload }) => {
+        const state = getState();
+        const { user } = userSelector(state);
+
+        return { newUserProfile: payload, oldUser: user };
+      });
+
+    const ajaxUpdate$ = updateAcoount$
+      .debounce(250)
+      .flatMap(({ newUserProfile, oldUser }) => {
+        const { app: { user: username, csrfToken: _csrf } } = getState();
+        const body = { _csrf, newUserProfile };
+        return postJSON$('/update-my-account', body)
+          .flatMap(({ message }) => {
+            return Observable.of(
+              // show user that we have updated their lang
+              makeToast({ message }),
+              // update url to reflect change
+              push(`/ja/settings/account`),
+              // refetch challenges in new language
+              fetchUser()
+            );
+          })
+          .catch(doActionOnError(() => {
+            return updateUserAccount(username, oldUser);
+          }));
+      });
+    const optimistic$ = updateAcoount$
+      .map(({ newUserProfile }) => {
+        const { app: { user: username } } = getState();
+        return updateUserAccount(username, newUserProfile);
+      });
+    return Observable.merge(ajaxUpdate$, optimistic$);
+}
+
 export default combineSagas(
   updateUserFlagSaga,
   updateUserEmailSaga,
-  updateUserLangSaga
+  updateUserLangSaga,
+  updateUserAccountSaga
 );

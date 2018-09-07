@@ -11,7 +11,7 @@ export default {
     passwordField: 'password',
     authPath: '/auth/local',
     successRedirect: successRedirect,
-    failureRedirect: '/email-signin',
+    failureRedirect: '/ja/email-signin',
     session: true,
     failureFlash: true
   },
@@ -144,7 +144,6 @@ export default {
     failureRedirect: failureRedirect,
     clientID: process.env.GITHUB_ID,
     clientSecret: process.env.GITHUB_SECRET,
-    scope: ['email'],
     failureFlash: true
   },
   'github-link': {
@@ -158,7 +157,6 @@ export default {
     failureRedirect: linkFailureRedirect,
     clientID: process.env.GITHUB_ID,
     clientSecret: process.env.GITHUB_SECRET,
-    scope: ['email'],
     link: true,
     failureFlash: true,
     successFlash: [ 'We\'ve updated your profile based ',

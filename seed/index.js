@@ -54,6 +54,7 @@ Observable.combineLatest(
     var block = {
       title: blockName,
       name: nameify(blockName),
+      description: challengeSpec.description,
       dashedName: dasherize(blockName),
       superOrder: superOrder,
       superBlock: superBlock,

@@ -4,12 +4,22 @@ html(lang='en')
     if title
       title= title
     else
-      title Free Code Camp
+      title 4each
     include partials/react-stylesheets
-  body.container.react-layout(style='overflow: hidden')
+  body
     #fcc!= markup
     script!= state
     script.
       window.webpackManifest = !{JSON.stringify(chunkManifest || {})};
+      // 背景bodyclass あまりスマートでない
+      (location.pathname.match(/\/challenges/) || location.pathname.match(/\/map/)) ? document.body.className += " white" : '';
     script(src=rev('/js', 'vendor-challenges.js'))
     script(src=rev('/js', 'bundle.js'))
+    // for design part
+    script(src=rev('/js', 'jquery-2.2.4.min.js'))
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js')
+    script(src=rev('/js', 'vendor-main.js'))
+    script(src=rev('/js', 'foldscroll.js'))
+    script(src=rev('/js', 'script.js'))
+    script(src=rev('/js', 'main.js'))

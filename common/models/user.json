@@ -86,6 +86,10 @@
       "type": "string",
       "default": ""
     },
+    "milestone": {
+      "type": "number",
+      "default": 60
+    },
     "linkedin": {
       "type": "string"
     },
@@ -215,6 +219,9 @@
         }
       },
       "default": {}
+    },
+    "createdate": {
+        "type": "object"
     }
   },
   "validations": [],

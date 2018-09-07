@@ -1,5 +1,6 @@
 import Show from './components/Show.jsx';
 import ShowMap from './components/map/Map.jsx';
+import ShowLessons from './components/lessons/Lessons.jsx';
 
 export function challengesRoute() {
   return {
@@ -25,5 +26,13 @@ export function mapRoute() {
   return {
     path: 'map',
     component: ShowMap
+  };
+}
+
+
+export function lessonsRoute() {
+  return {
+    path: 'lessons/:block',
+    component: ShowLessons
   };
 }

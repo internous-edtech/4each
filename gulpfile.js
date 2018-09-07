@@ -100,6 +100,11 @@ var paths = {
     'public/bower_components/CodeMirror/mode/xml/xml.js',
     'public/bower_components/CodeMirror/mode/css/css.js',
     'public/bower_components/CodeMirror/mode/htmlmixed/htmlmixed.js',
+    'public/bower_components/CodeMirror/mode/clike/clike.js',
+    'public/bower_components/CodeMirror/mode/php/php.js',
+    'public/bower_components/CodeMirror/mode/python/python.js',
+    'public/bower_components/CodeMirror/mode/perl/perl.js',
+    'public/bower_components/CodeMirror/mode/ruby/ruby.js',
     'node_modules/emmet-codemirror/dist/emmet.js',
     'public/js/lib/loop-protect/loop-protect.js'
   ],

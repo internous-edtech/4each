@@ -6,7 +6,6 @@ import FontAwesome from 'react-fontawesome';
 const propTypes = {
   close: PropTypes.func,
   open: PropTypes.bool.isRequired,
-  submitChallenge: PropTypes.func.isRequired,
   successMessage: PropTypes.string.isRequired
 };
 
@@ -17,14 +16,13 @@ export default class ClassicModal extends PureComponent {
   }
 
   handleKeyDown(e) {
-    const { open, submitChallenge } = this.props;
+    const { open } = this.props;
     if (
       e.keyCode === 13 &&
       (e.ctrlKey || e.meta) &&
       open
       ) {
         e.preventDefault();
-        submitChallenge();
       }
   }
 
@@ -32,12 +30,11 @@ export default class ClassicModal extends PureComponent {
     const {
       close,
       open,
-      submitChallenge,
       successMessage
     } = this.props;
     return (
       <Modal
-        animation={ false }
+        animation={ true }
         dialogClassName='challenge-success-modal'
         keyboard={ true }
         onHide={ close }
@@ -67,9 +64,8 @@ export default class ClassicModal extends PureComponent {
             block={ true }
             bsSize='large'
             bsStyle='primary'
-            onClick={ submitChallenge }
             >
-            Submit and go to next challenge (Ctrl + Enter)
+            Submit and go to next challenge
           </Button>
         </Modal.Footer>
       </Modal>

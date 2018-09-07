@@ -20,7 +20,7 @@ window.common = (function(global) {
     const tail = common.arrayToNewLineString(common.tail);
     const combinedCode = head + code + tail;
 
-    ga('send', 'event', 'Challenge', 'ran-code', common.gaName);
+    // ga('send', 'event', 'Challenge', 'ran-code', common.gaName);
 
     // run checks for unsafe code
     return detectUnsafeCode$(code)
@@ -37,7 +37,7 @@ window.common = (function(global) {
         let output;
 
         if (
-          challengeType === challengeTypes.HTML &&
+          (challengeType === challengeTypes.HTML || challengeType === challengeTypes.shakyo ) &&
           common.hasJs(code)
         ) {
           output = common.getJsOutput(getJsFromHtml(code));

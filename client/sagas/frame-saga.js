@@ -10,6 +10,10 @@ import {
   updateTests
 } from '../../common/app/routes/challenges/redux/actions';
 
+import {
+  challengeSelector
+} from '../../common/app/routes/challenges/redux/selectors';
+
 // we use three different frames to make them all essentially pure functions
 const mainId = 'fcc-main-frame';
 const testId = 'fcc-test-frame';
@@ -65,6 +69,19 @@ function buildProxyConsole(window, proxyLogger$) {
   };
 }
 
+function buildProxyConsoleForMock(document, proxyLogger$) {
+  const { frame: main, frameWindow } = getFrameDocument(document);
+
+  const oldLog = frameWindow.console.log.bind(console);
+  frameWindow.___console = {};
+  frameWindow.___console.log = function proxyConsole(...args) {
+    proxyLogger$.onNext(args);
+    return oldLog(...args);
+  };
+
+  return frameWindow.___console.log;
+}
+
 function frameMain({ build, source } = {}, document, proxyLogger$) {
   const { frame: main, frameWindow } = getFrameDocument(document);
   refreshFrame(main);
@@ -89,6 +106,7 @@ export default function frameSaga(actions$, getState, { window, document }) {
   window.__common = {};
   window.__common.shouldRun = () => true;
   const proxyLogger$ = new Subject();
+  let logger = null;
   const runTests$ = window.__common[testId + 'Ready$'] =
     new Subject();
   const result$ = actions$::ofType(
@@ -100,6 +118,7 @@ export default function frameSaga(actions$, getState, { window, document }) {
     .filter(() => !getState().challengesApp.isCodeLocked)
     .map(action => {
       if (action.type === types.frameMain) {
+        logger = buildProxyConsoleForMock(document,proxyLogger$);
         return frameMain(action.payload, document, proxyLogger$);
       }
       return frameTests(action.payload, document);
@@ -110,11 +129,16 @@ export default function frameSaga(actions$, getState, { window, document }) {
     runTests$.flatMap(() => {
       const { frame } = getFrameDocument(document, testId);
       const { tests } = getState().challengesApp;
+      const { challenge } = challengeSelector(getState());
+
       const postTests = Observable.of(
-        updateOutput('// tests completed'),
+        updateOutput('---実行完了---'),
         checkChallenge()
       ).delay(250);
-      return frame.__runTests$(tests)
+
+      return frame.__runTests$(tests, challenge, getState().app.csrfToken, function (output){
+          logger(output);
+      })
         .map(updateTests)
         .concat(postTests);
     }),

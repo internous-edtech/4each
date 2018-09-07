@@ -7,7 +7,7 @@ const message =
 
 module.exports = function(app) {
   var router = app.loopback.Router();
-  router.get('/', addDefaultImage, index);
+  router.get('/top', addDefaultImage, index);
   app.use(
       '/:lang',
       (req, res, next) => {

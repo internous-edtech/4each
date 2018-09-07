@@ -223,6 +223,7 @@ module.exports = function(app) {
   );
 
   router.get('/:username', showUserProfile);
+  router.get('/:username/activity', showUserActivity);
 
   app.use('/:lang', router);
   app.use(api);
@@ -247,7 +248,7 @@ module.exports = function(app) {
       return res.redirect('/');
     }
     return res.render('account/deprecated-signin', {
-      title: 'Sign in to Free Code Camp using a Deprecated Login'
+      title: 'ログイン'
     });
   }
 
@@ -265,7 +266,7 @@ module.exports = function(app) {
       return res.redirect('/');
     }
     return res.render('account/email-signin', {
-      title: 'Sign in to Free Code Camp using your Email Address'
+      title: 'ログイン'
     });
   }
 
@@ -274,7 +275,7 @@ module.exports = function(app) {
       return res.redirect('/');
     }
     return res.render('account/email-signup', {
-      title: 'Sign up for Free Code Camp using your Email Address'
+      title: '新規登録'
     });
   }
 
@@ -440,6 +441,104 @@ module.exports = function(app) {
         () => {},
         next
       );
+  }
+
+  // FIXME
+  // コピペ showUserProfile
+  function showUserActivity(req, res, next) {
+        const username = req.params.username.toLowerCase();
+        const { user } = req;
+
+        // timezone of signed-in account
+        // to show all date related components
+        // using signed-in account's timezone
+        // not of the profile she is viewing
+        const timezone = user && user.timezone ?
+          user.timezone :
+          'UTC';
+
+        const query = {
+          where: { username },
+          include: 'pledge'
+        };
+
+        return User.findOne$(query)
+          .filter(userPortfolio => {
+            if (!userPortfolio) {
+              next();
+            }
+            return !!userPortfolio;
+          })
+          .flatMap(userPortfolio => {
+            userPortfolio = userPortfolio.toJSON();
+
+            const timestamps = userPortfolio
+              .progressTimestamps
+              .map(objOrNum => {
+                return typeof objOrNum === 'number' ?
+                  objOrNum :
+                  objOrNum.timestamp;
+              });
+
+            const uniqueDays = prepUniqueDays(timestamps, timezone);
+
+            userPortfolio.currentStreak = calcCurrentStreak(uniqueDays, timezone);
+            userPortfolio.longestStreak = calcLongestStreak(uniqueDays, timezone);
+
+            const calender = userPortfolio
+              .progressTimestamps
+              .map((objOrNum) => {
+                return typeof objOrNum === 'number' ?
+                  objOrNum :
+                  objOrNum.timestamp;
+              })
+              .filter((timestamp) => {
+                return !!timestamp;
+              })
+              .reduce((data, timeStamp) => {
+                data[(timeStamp / 1000)] = 1;
+                return data;
+              }, {});
+
+            if (userPortfolio.isCheater && !user) {
+              req.flash('errors', {
+                msg: dedent`
+                  Upon review, this account has been flagged for academic
+                  dishonesty. If you’re the owner of this account contact
+                  team@freecodecamp.com for details.
+                `
+              });
+            }
+
+            if (userPortfolio.bio) {
+              userPortfolio.bio = emoji.emojify(userPortfolio.bio);
+            }
+
+            return map$.map(({ entities }) => createNameIdMap(entities))
+              .flatMap(entities => buildDisplayChallenges(
+                entities,
+                userPortfolio.challengeMap,
+                timezone
+              ))
+              .map(displayChallenges => ({
+                ...userPortfolio,
+                ...displayChallenges,
+                title: 'Camper ' + userPortfolio.username + '\'s Code Portfolio',
+                calender,
+                github: userPortfolio.githubURL,
+                moment,
+                encodeFcc,
+                supportedLanguages
+              }));
+          })
+          .doOnNext(data => {
+              const { calender, currentStreak, longestStreak } = data
+            return res.json({ calender, currentStreak, longestStreak })
+          })
+          .subscribe(
+            () => {},
+            next
+          );
   }
 
   function showCert(certType, req, res, next) {

@@ -151,6 +151,7 @@ $(document).ready(function() {
 
   if (
     challengeType === challengeTypes.BONFIRE ||
+    challengeType === challengeTypes.SERVER ||
     challengeType === challengeTypes.JS
   ) {
     return Observable.just({})

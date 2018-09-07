@@ -1,11 +1,7 @@
-[{
-  "content": "Forum",
-  "link": "http://forum.freecodecamp.com/",
-  "target": "_blank"
-},{
-  "content": "About",
-  "link": "/about"
-},{
-  "content": "Shop",
-  "link": "/shop"
-}]
+[
+  {
+    "content": "Map",
+    "link": "/map",
+    "isReact": true
+  }
+]

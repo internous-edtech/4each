@@ -93,7 +93,11 @@ function getChallengeByDashedName(dashedName, challengeMap$, lang) {
       if (challengeOrNull) {
         return Observable.just(challengeOrNull);
       }
-      return getFirstChallenge(challengeMap$);
+      // TODO
+      // challengeが見つからない時はlessonsにリダイレクト
+      // common/app/routes/challenges/redux/fetch-challenges-saga.js
+      return Observable.just({redirect:null,result:null});
+      // return getFirstChallenge(challengeMap$);
     })
     .map(challenge => ({
       redirect:

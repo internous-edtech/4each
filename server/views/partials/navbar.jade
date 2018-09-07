@@ -1,32 +1,41 @@
-nav.navbar.navbar-default.navbar-fixed-top.nav-height
-    .navbar-header
-        button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-            .col-xs-12
-                span.hamburger-text Menu
-        a.navbar-brand(href='/challenges/current-challenge')
-            img.img-responsive.nav-logo(src='https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg', alt='learn to code javascript at Free Code Camp logo')
-    .collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right.hamburger-dropdown
-            li
-                a(href='/map') Map
-            li.hidden-xs
-                a#nav-chat-btn(href='//gitter.im/freecodecamp/freecodecamp' onclick="if (!(event.ctrlKey || event.metaKey)) {return false;}") Chat
-            li.visible-xs
-                a(href="//gitter.im/freecodecamp/freecodecamp" target="_blank") Chat
-            li
-                a(href='http://forum.freecodecamp.com', target='_blank') Forum
-            li
-                a(href='/about') About
-            li
-                a(href='/shop') Shop
-            if !user
-                li
-                    a(href='/signup') Sign Up
-            else
-                li.avatar-points
-                  a(href='/settings')
-                    span.brownie-points-nav
-                      span.hidden-md.hidden-lg #{user.username} 
-                      span.brownie-points [&thinsp;#{user.points}&thinsp;]
-                    span.hidden-xs.hidden-sm.avatar
-                      img.profile-picture.float-right(src='#{user.picture}')
+header
+    .navbar.navbar-default
+        .container
+            .navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/ja/')
+                    img(src="/img/logo.png")
+
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href='/ja/map') Map
+                    if !user
+                        li.dropdown
+                            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                                | ログイン
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="/ja/login") ログイン
+                                li.divider(role="separator")
+                                li
+                                    a(href="/ja/signup") 新規登録
+                    else
+                        li.dropdown
+                            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+                                if user.name
+                                    |  #{user.name}
+                                else
+                                    |  #{user.username}
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="/ja/settings/account") アカウント情報
+                                li.divider(role="separator")
+                                li
+                                    a(href="/ja/signout") ログアウト

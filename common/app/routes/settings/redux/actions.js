@@ -5,7 +5,8 @@ import createTypes from '../../../utils/create-types';
 export const types = createTypes([
   'toggleUserFlag',
   'updateMyEmail',
-  'updateMyLang'
+  'updateMyLang',
+  'updateMyAccount'
 ], 'settings');
 
 export const toggleUserFlag = createAction(types.toggleUserFlag);
@@ -14,3 +15,4 @@ export const updateMyLang = createAction(
   types.updateMyLang,
   (values) => values.lang
 );
+export const updateMyAccount = createAction(types.updateMyAccount);

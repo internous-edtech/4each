@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
+
 import * as challengeTypes from '../../../utils/challengeTypes';
 import { getNode } from '../utils';
+import blockNameify from '../../../utils/blockNameify';
 
 const viewTypes = {
   [ challengeTypes.html]: 'classic',
@@ -12,7 +14,12 @@ const viewTypes = {
   [ challengeTypes.simpleProject]: 'project',
   // formally hikes
   [ challengeTypes.video ]: 'video',
-  [ challengeTypes.step ]: 'step'
+  [ challengeTypes.step ]: 'step',
+  [ challengeTypes.ppt ]: 'ppt',
+  [ challengeTypes.quiz ]: 'quiz',
+  [ challengeTypes.server ]: 'shakyo',
+  [ challengeTypes.shakyo ]: 'shakyo',
+
 };
 
 const submitTypes = {
@@ -30,7 +37,11 @@ const submitTypes = {
   [ challengeTypes.backEndProject ]: 'project.backEnd',
   // formally hikes
   [ challengeTypes.video ]: 'video',
-  [ challengeTypes.step ]: 'step'
+  [ challengeTypes.step ]: 'step',
+  [ challengeTypes.ppt ]: 'ppt',
+  [ challengeTypes.quiz ]: 'quiz',
+  [ challengeTypes.server ]: 'tests',
+  [ challengeTypes.shakyo ]: 'shakyo'
 };
 
 export const challengeSelector = createSelector(
@@ -42,14 +53,31 @@ export const challengeSelector = createSelector(
     }
     const challenge = challengeMap[challengeName];
     const challengeType = challenge && challenge.challengeType;
+    const blockName = blockNameify(challenge.block);
+    const type = challenge && challenge.type;
+    const viewType = viewTypes[type] || viewTypes[challengeType] || 'classic';
+    const title = blockName && challenge.title ?
+                  `${blockName}: ${challenge.title}` :
+                  challenge.title;
+    const language = challenge && challenge.language;
+
+    const mode = {
+        [challengeTypes.html] : 'text/html',
+        [challengeTypes.js] : 'javascript',
+        'php' : 'application/x-httpd-php', // php+html+css+js
+        'ruby' : 'text/x-ruby', // ruby
+        'python' : 'text/x-python', // python
+        'perl' : 'text/x-perl', // perl
+        'java' : 'text/x-java', // java
+    };
+
     return {
       challenge,
-      viewType: viewTypes[challengeType] || 'classic',
-      submitType: submitTypes[challengeType] || 'tests',
+      title,
+      viewType: viewType,
+      submitType: submitTypes[challengeType] || submitTypes[challenge && challenge.type] || 'tests',
       showPreview: challengeType === challengeTypes.html,
-      mode: challenge && challengeType === challengeTypes.html ?
-        'text/html' :
-        'javascript'
+      mode: mode[language ? language : challengeType]
     };
   }
 );

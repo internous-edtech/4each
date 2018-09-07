@@ -14,6 +14,8 @@ const challengeTypes = {
   bonfire: 5,
   hikes: 6,
   step: 7,
+  video: 8,
+  server: 9,
   waypoint: 0
 };
 

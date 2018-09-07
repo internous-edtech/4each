@@ -9,6 +9,9 @@ import Classic from './classic/Classic.jsx';
 import Step from './step/Step.jsx';
 import Project from './project/Project.jsx';
 import Video from './video/Video.jsx';
+import Ppt from './ppt/Ppt.jsx';
+import Quiz from './quiz/Quiz.jsx';
+import NewClassic from './new_classic/Classic.jsx';
 
 import {
   fetchChallenge,
@@ -25,7 +28,11 @@ const views = {
   classic: Classic,
   project: Project,
   simple: Project,
-  video: Video
+  video: Video,
+  ppt: Ppt,
+  quiz: Quiz,
+  server: NewClassic,
+  shakyo: NewClassic
 };
 
 const bindableActions = {
@@ -44,7 +51,9 @@ const mapStateToProps = createSelector(
   state => state.app.lang,
   (
     {
-      challenge: { title, isTranslated } = {}, viewType
+      challenge: { isTranslated } = {},
+      viewType,
+      title
     },
     challenge,
     superBlocks = [],
@@ -92,20 +101,22 @@ export class Challenges extends PureComponent {
   };
 
   componentWillMount() {
-    const { title, updateTitle, lang, isTranslated, makeToast } = this.props;
-    updateTitle(title);
+    const { lang, isTranslated, makeToast } = this.props;
     if (lang !== 'en' && !isTranslated) {
-      makeToast({
-        message: 'We haven\'t translated this challenge yet.',
-        action: <a href={ link } target='_blank'>Help Us</a>,
-        timeout: 15000
-      });
+    //   makeToast({
+    //     message: 'We haven\'t translated this challenge yet.',
+    //     action: <a href={ link } target='_blank'>Help Us</a>,
+    //     timeout: 15000
+    //   });
     }
   }
 
   componentDidMount() {
     if (!this.props.areChallengesLoaded) {
       this.props.fetchChallenges();
+    }
+    if (this.props.title) {
+      this.props.updateTitle(this.props.title);
     }
   }
 
@@ -114,19 +125,20 @@ export class Challenges extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { title } = nextProps;
     const { block, dashedName } = nextProps.params;
     const { lang, isTranslated } = nextProps;
     const { resetUi, updateTitle, replaceChallenge, makeToast } = this.props;
     if (this.props.params.dashedName !== dashedName) {
-      updateTitle(nextProps.title);
+      updateTitle(title);
       resetUi();
       replaceChallenge({ dashedName, block });
-      if (lang !== 'en' && !isTranslated) {
-        makeToast({
-          message: 'We haven\'t translated this challenge yet.',
-          action: <a href={ link } target='_blank'>Help Us</a>,
-          timeout: 15000
-        });
+      if (lang !== 'ja' && !isTranslated) {
+        // makeToast({
+        //   message: 'We haven\'t translated this challenge yet.',
+        //   action: <a href={ link } target='_blank'>Help Us</a>,
+        //   timeout: 15000
+        // });
       }
     }
   }

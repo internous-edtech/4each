@@ -1,10 +1,11 @@
 import { Observable } from 'rx';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 import moment from 'moment';
 import dedent from 'dedent';
 import debugFactory from 'debug';
 import { isEmail } from 'validator';
 import path from 'path';
+import mongo from 'mongodb';
 
 import { saveUser, observeMethod } from '../../server/utils/rx';
 import { blacklistedUsernames } from '../../server/utils/constants';
@@ -154,6 +155,7 @@ module.exports = function(User) {
 
   User.beforeRemote('create', function({ req, res }, _, next) {
     req.body.username = 'fcc' + uuid.v4().slice(0, 8);
+    req.body.createdate = new mongo.Timestamp(+new Date()/1000);
     if (!req.body.email) {
       return next();
     }
@@ -173,14 +175,14 @@ module.exports = function(User) {
           `
         });
 
-        return res.redirect('/email-signin');
+        return res.redirect('/ja/email-signin');
       })
       .catch(err => {
         console.error(err);
         req.flash('error', {
           msg: 'Oops, something went wrong, please try again later'
         });
-        return res.redirect('/email-signup');
+        return res.redirect('/ja/email-signup');
       });
   });
 
@@ -259,6 +261,26 @@ module.exports = function(User) {
 
       debug('user logged in');
 
+      // ログイン時情報保存
+      try {
+          // Create a model from the user instance
+          var _forReportLogin = req.app.dataSources.db.buildModelFromInstance('forReportLogin');
+
+          _forReportLogin.create({
+              "userid": accessToken.userId,
+              "logindate": new mongo.Timestamp((+new Date()/1000)),
+              "challengeId": "",
+              "challengePercent": 0
+          }, function (err, u1) {
+            console.log(err);
+          });
+
+      } catch (e) {
+          debug('error _forReportLogin in',e);
+      } finally {
+
+      }
+
       if (req.session && req.session.returnTo) {
         var redirectTo = req.session.returnTo;
         if (redirectTo === '/map-aside') {
@@ -267,7 +289,7 @@ module.exports = function(User) {
         return res.redirect(redirectTo);
       }
 
-      req.flash('success', { msg: 'Success! You are now logged in.' });
+      req.flash('success', { msg: '' });
       return res.redirect('/');
     });
   });
@@ -277,7 +299,7 @@ module.exports = function(User) {
     var req = ctx.req;
 
     req.flash('errors', {
-      msg: 'Invalid username or password.'
+      msg: '入力されたユーザー名やパスワードが正しくありません。<br>確認してからやりなおしてください。'
     });
     return res.redirect('/email-signin');
   });

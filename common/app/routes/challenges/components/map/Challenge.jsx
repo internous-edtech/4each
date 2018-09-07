@@ -9,9 +9,21 @@ import debug from 'debug';
 import { updateCurrentChallenge } from '../../redux/actions';
 import { makePanelHiddenSelector } from '../../redux/selectors';
 import { userSelector } from '../../../../redux/selectors';
-import { closeMapDrawer } from '../../../../redux/actions';
 
-const bindableActions = { closeMapDrawer, updateCurrentChallenge };
+const propTypes = {
+  block: PropTypes.string,
+  challenge: PropTypes.object,
+  dashedName: PropTypes.string,
+  isComingSoon: PropTypes.bool,
+  isCompleted: PropTypes.bool,
+  isDev: PropTypes.bool,
+  isHidden: PropTypes.bool,
+  isLocked: PropTypes.bool,
+  isRequired: PropTypes.bool,
+  title: PropTypes.string,
+  updateCurrentChallenge: PropTypes.func.isRequired
+};
+const mapDispatchToProps = { updateCurrentChallenge };
 const makeMapStateToProps = () => createSelector(
   userSelector,
   (_, props) => props.dashedName,
@@ -48,24 +60,8 @@ export class Challenge extends PureComponent {
     super(...args);
     this.handleChallengeClick = this.handleChallengeClick.bind(this);
   }
-  static displayName = 'Challenge';
-  static propTypes = {
-    title: PropTypes.string,
-    dashedName: PropTypes.string,
-    block: PropTypes.string,
-    isLocked: PropTypes.bool,
-    isRequired: PropTypes.bool,
-    isComingSoon: PropTypes.bool,
-    isCompleted: PropTypes.bool,
-    isDev: PropTypes.bool,
-    isHidden: PropTypes.bool,
-    challenge: PropTypes.object,
-    updateCurrentChallenge: PropTypes.func.isRequired,
-    closeMapDrawer: PropTypes.func.isRequired
-  };
 
   handleChallengeClick() {
-    this.props.closeMapDrawer();
     this.props.updateCurrentChallenge(this.props.challenge);
   }
 
@@ -149,16 +145,22 @@ export class Challenge extends PureComponent {
         className={ challengeClassName }
         key={ title }
         >
-        <Link to={ `/challenges/${block}/${dashedName}` }>
+        <a href={ `/challenges/${block}/${dashedName}` }>
           <span onClick={ this.handleChallengeClick }>
             { title }
             { this.renderCompleted(isCompleted, isLocked) }
             { this.renderRequired(isRequired) }
           </span>
-        </Link>
+      </a>
       </p>
     );
   }
 }
 
-export default connect(makeMapStateToProps, bindableActions)(Challenge);
+Challenge.propTypes = propTypes;
+Challenge.dispalyName = 'Challenge';
+
+export default connect(
+  makeMapStateToProps,
+  mapDispatchToProps
+)(Challenge);

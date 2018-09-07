@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 import { createPoly } from '../../../../utils/polyvinyl';
 
 import types from './types';
-import { bonfire, html, js } from '../../../utils/challengeTypes';
+import { bonfire, html, js, server, shakyo } from '../../../utils/challengeTypes';
 import {
   arrayToString,
   buildSeed,
@@ -24,13 +24,7 @@ const initialUiState = {
   isLightBoxOpen: false,
   // project is ready to submit
   isSubmitting: false,
-  output: `/**
-  * Your output will go here.
-  * Any console.log() - type
-  * statements will appear in
-  * your browser\'s DevTools
-  * JavaScript console as well.
-  */`,
+  output: `プログラム実行結果出力欄`,
   // video
   // 1 indexed
   currentQuestion: 1,
@@ -44,7 +38,8 @@ const initialUiState = {
   shouldShakeQuestion: false,
   shouldShowQuestions: false,
   isChallengeModalOpen: false,
-  successMessage: 'Happy Coding!'
+  successMessage: 'Happy Coding!',
+  unlockedSteps: []
 };
 const initialState = {
   isCodeLocked: false,
@@ -143,16 +138,19 @@ const mainReducer = handleActions(
     }),
 
     // step
-    [types.goToStep]: (state, { payload: step = 0 }) => ({
+    [types.goToStep]: (state, { payload: { step = 0, isUnlocked }}) => ({
       ...state,
       currentIndex: step,
       previousIndex: state.currentIndex,
-      isActionCompleted: false
+      isActionCompleted: isUnlocked
     }),
-
     [types.completeAction]: state => ({
       ...state,
       isActionCompleted: true
+    }),
+    [types.updateUnlockedSteps]: (state, { payload }) => ({
+      ...state,
+      unlockedSteps: payload
     }),
     [types.openLightBoxImage]: state => ({
       ...state,
@@ -243,6 +241,8 @@ const filesReducer = handleActions(
       if (
         challenge.challengeType !== html &&
         challenge.challengeType !== js &&
+        challenge.challengeType !== server &&
+        challenge.challengeType !== shakyo &&
         challenge.challengeType !== bonfire
       ) {
         return {};
@@ -265,6 +265,8 @@ const filesReducer = handleActions(
       if (
         challenge.challengeType !== html &&
         challenge.challengeType !== js &&
+        challenge.challengeType !== server &&
+        challenge.challengeType !== shakyo &&
         challenge.challengeType !== bonfire
       ) {
         return {};
@@ -274,7 +276,9 @@ const filesReducer = handleActions(
       return {
         [preFile.key]: createPoly({
           ...preFile,
-          contents: buildSeed(challenge),
+          contents: challenge.codeInputs.filter(function(file){
+            return file.name + file.ext == preFile.key;
+        })[0].contents.join('\n'),
           head: arrayToString(challenge.head),
           tail: arrayToString(challenge.tail)
         })

@@ -16,7 +16,7 @@ import { backEndProject } from '../../../utils/challengeTypes';
 import { makeToast } from '../../../toasts/redux/actions';
 import { postJSON$ } from '../../../../utils/ajax-stream';
 
-function postChallenge(url, username, _csrf, challengeInfo) {
+function postChallenge(url, username, _csrf, challengeInfo, payload) {
   const body = { ...challengeInfo, _csrf };
   const saveChallenge$ = postJSON$(url, body)
     .retry(3)
@@ -31,34 +31,57 @@ function postChallenge(url, username, _csrf, challengeInfo) {
       );
     })
     .catch(createErrorObservable);
-  const challengeCompleted$ = Observable.of(moveToNextChallenge());
+  const challengeCompleted$ = Observable.of(moveToNextChallenge(payload));
   return Observable.merge(saveChallenge$, challengeCompleted$);
 }
 
 function submitModern(type, state) {
   const { tests } = state.challengesApp;
-  if (tests.length > 0 && tests.every(test => test.pass && !test.err)) {
-    if (type === types.checkChallenge) {
-      return Observable.just(null);
-    }
-
-    if (type === types.submitChallenge) {
+  let message = 'Keep trying.';
+  const hasError = tests.length > 0 && tests.every(test => test.pass && !test.err);
+  const gotoNext = (state, message) => {
       const { challenge: { id } } = challengeSelector(state);
       const {
         app: { user, csrfToken },
         challengesApp: { files }
       } = state;
       const challengeInfo = { id, files };
+      message = "";
       return postChallenge(
         '/modern-challenge-completed',
         user,
         csrfToken,
         challengeInfo
       );
+  }
+
+  if (hasError) {
+    if (type === types.checkChallenge) {
+      return Observable.just(null);
+    }
+
+    if (type === types.submitChallenge) {
+        return gotoNext(state, message);
     }
   }
+
+  try {
+      let { challenge: { challengeType } } = challengeSelector(state);
+      if(challengeType == "11"){
+          message = '実行完了';
+      }
+      if(challengeType == "9"){
+          message = '完了';
+          return gotoNext(state, message);
+      }
+  } catch (e) {
+
+  } finally {
+
+  }
+
   return Observable.just(
-    makeToast({ message: 'Keep trying.' })
+    makeToast({ message:message })
   );
 }
 
@@ -81,7 +104,7 @@ function submitProject(type, state, { solution, githubLink }) {
   );
 }
 
-function submitSimpleChallenge(type, state) {
+function submitSimpleChallenge(type, state, payload) {
   const {
     challenge: { id }
   } = challengeSelector(state);
@@ -93,7 +116,8 @@ function submitSimpleChallenge(type, state) {
     '/challenge-completed',
     user,
     csrfToken,
-    challengeInfo
+    challengeInfo,
+    payload
   );
 }
 
@@ -101,6 +125,9 @@ const submitTypes = {
   tests: submitModern,
   step: submitSimpleChallenge,
   video: submitSimpleChallenge,
+  ppt: submitSimpleChallenge,
+  quiz: submitSimpleChallenge,
+  shakyo: submitModern,
   'project.frontEnd': submitProject,
   'project.backEnd': submitProject,
   'project.simple': submitSimpleChallenge

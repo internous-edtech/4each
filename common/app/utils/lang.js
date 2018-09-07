@@ -10,7 +10,7 @@ export function getLangFromPath(path) {
   if (supportedLanguages[maybeLang]) {
     return maybeLang;
   }
-  return 'en';
+  return 'ja';
 }
 
 export function addLang(path, lang, primaryLang) {
@@ -35,5 +35,5 @@ export function addLang(path, lang, primaryLang) {
   if (supportedLanguages[primaryLang || lang]) {
     return `/${primaryLang || lang}${path}`;
   }
-  return `/en${path}`;
+  return `/ja${path}`;
 }
